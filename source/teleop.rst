@@ -34,7 +34,7 @@ Button # Function (details below)
  8       Control reach in
  9       Control reach out
  10      Primary deadman
- 11      Camera deadman
+ 11      Secondary deadman
  12      Not used
  13      Log in to truck
  14      Not used
@@ -52,13 +52,13 @@ To toggle parking break, press the "Toggle parking break" button (button 15 abov
 To drive the robot base, hold the primary deadman button (button 10
 above) and use the left joystick.
 
-To move the fork up and down use the right joystick.
+To move the fork up and down, hold the secondary deadman button (button 11 above) and use the right joystick.
 
 .. warning::
 
     Whenever driving the robot, always lower the fork to avoid damaging objects and people
 
-To control the 3D camera, release the primary deadman and hold the camera 
+To control the 3D camera, release the secondary
 deadman (button 11). The right joystick now controls camera tilt.
 
 
