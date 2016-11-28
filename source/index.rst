@@ -48,6 +48,14 @@ Legal
    notices
    license
 
+Write document
+--------------
+
+.. toctree::
+   :maxdepth: 2
+   
+   document_instruction
+
 Indices and tables
 ==================
 
