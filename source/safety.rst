@@ -65,6 +65,7 @@ reduce risk.
  - Keep fingers, hair, and clothing away from wheels, gears, and any location that is could potentially be a pinch point. 
  - Be aware of the location of emergency exits and ensure that the robots cannot block them. 
  - Do not operate the robots outdoors. 
+ - All testing of new features on the robots should be done in an enclosed area.
 
 \
 
