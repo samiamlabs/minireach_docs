@@ -118,3 +118,21 @@ uses a method called TEB (Timed elastic band). It locally optimizes the trajecto
 Read the `documentation <http://wiki.ros.org/teb_local_planner>`_ for further information.
 The planner consists of several parameters which can be tuned in order to enhance the behaviour of the robot. 
 
+In event of unwanted driving-behaviour from minireach, one solution could be to modify the parameters of the local planner and connected maps.
+This is achieved in the config-files at "minireach/minireach_nav/config/minireach_gazebo/base_local_planner_params.yaml".
+In order to ease the setup, see the following hints.
+     * Problem 1. Minireach is not keeping enough distance towards obstacle.
+       Solved by: 
+       Increase weight_obstacle.
+       Increase inflation_dist.
+       Increase min_obstacle_dist.
+     * Problem 2. Minireach oscilliates when traveling towards a goal.
+       Solved by:
+       Decrease weight_viapoint.
+       Increase weight_optimaltime.
+       Decrease inflation_radius.
+     * Problem 3. Minireach seems slow and takes to much time to "think".
+       Decrease number of iterations; no_inner_iterations, no_outer_iterations.
+       Decrease max_global_plan_lookahead_dist.
+       Decrease max_vel-parameters and controller_frequency.
+
