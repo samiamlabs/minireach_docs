@@ -5,44 +5,79 @@ This chapter present the background and functionalities of the executive state m
 
 Background
 ----------
-The Executive State machine is built upon python code for state machines with ROS actionlib and service functionalities to perform the given tasks. It is built up in three layers. In the first level you can find the sleep state, the failure state and a container. The container is a concurrence container and contains two states: the mission substate machine and the state check. The state check is constructed to be able to interupt the tasks performed in mission and works as a security solution. The state machine Mission contains the overriding states *Go to Pallet*, *Get Pallet*, *Go to Pallet Place* and *Leave Pallet* which all of them are substate machines with states within them.
+The Executive State machine is built upon python code for state machines called *Smach-state* with ROS actionlib and service functionalities to perform the given tasks. It is built up in three layers. In the first level you can find the *Sleep* state, the *Failure* state and a container. The container is a concurrence container and contains two states: the *Mission* substate machine and the state *Check*. The state *Check* is constructed to be able to interupt the tasks performed in *Mission* and works as a security solution. The state machine *Mission* contains the overriding states *Go_to_pallet*, *Get_pallet*, *Go_to_pallet_place* and *Leave_pallet* which all of them are substate machines with states within them.
 
-Go to Pallet handles functionalities to get the information of what pallet to get, looking up it's position, recalculation the position to a spot infront of the pallet and calling the move_base server to move the fork lift to that position. '
+	- *Go_to_pallet*: handles functionalities to look up the pallets position, recalculation the position to a spot infront of the pallet and calling the move_base server to move the fork lift to that position.
 
-Get Pallet handles functionalities to call a service (pallet_handler) to position the forks below the pallet and lift the pallet to a suitible height.
+	- *Get_pallet*: handles functionalities to call a service (pallet_handler) to position the forks under the pallet and lift the pallet to a suitible height.
 
-Go to Pallet Place XXX
+	- *Go_to_pallet*: has the same functionalities as *Go_to_pallet* but instead of pallets position the forklift will be moved to the pallet place instead.
 
-Leave Pallet handles functionalities to call a serivce (deliver_pallet) to position the forks over the pallet place and lower them.
+	- *Leave_pallet*: handles functionalities to call a serivce (deliver_pallet) to position the forks over the pallet place and lower them.
+	
+.. note::
+
+	Please consult the ros wiki: http://wiki.ros.org/smach, to learn more about smach state.
 
 
 Tutorial
 --------
 This is a short tutorial on how to use the Executive state machine
 
-    -Start the gazebo simulation enviroment or the fork lift itself
-    -Start the state machine, other nodes that are used and Rviz by writing the command
+	- Start the gazebo simulation enviroment or the fork lift itself, to start the simulation type
+    
+	::
 
-::
+		>$ roslaunch minireach_gazebo playground.launch
 
->$ roslaunch minireach_gazebo smach_pallet.launch
+	- Start the necessary nodes that are used and Rviz by writing the command in a new terminal
+
+	::
+
+		>$ roslaunch minireach_gazebo_demo smach_pallet.launch
+
+	- Open another terminal and start the state machine. The reason to start the state machine in a new terminal is to be able to follow which state that is executed easier
+	
+	::
+
+		>$ rosrun minireach_executive move_pallet_main.py
+
+	- Publish the wanted pallet and pallet place on the topic *send_mission* by the following command (the ids have to be integer)
+
+	::
+
+		>$ rostopic pub /send_mission minireach_executive/SendMission "mission: 'start'
+		pallet: [pallet id]
+		pallet_place: [pallet_place id]"
+
+	- You have now sent the mission to get the given pallet and leave it on the pallet place.
+
+.. note::
+
+	The mission can be aborted by publish a stop message at the same topic
+	::
+	
+		>$ rostopic pub /send_mission minireach_executive/SendMission "mission: 'stop'
+		pallet: [pallet id]
+		pallet_place: [pallet_place id]"
+	
+	The [pallet id] and [pallet_place id] doesn't matter here, but need to be integer.
+	
+.. warning::
+
+	Don't forget to abort the publishing message, *ctrl + c* in the terminal. If not the forklift will start a new mission direct after finished the first one.
+	
+The mission can also be sent from the GUI, see XXXXXXXXXX for more information.
 
 
+Troubleshooting
+---------------
 
-    -Publish the wanted pallet and pallet place on the topic send_mission by the following command
+If something goes wrong or the forklift is not capable to prefrom its task the mission will be aborted. Today the state machine will go throw two failure-state. One local failure state for each task and one global failure state that always will be executed. Today nothing happend in the failure state, but it is possible to implement recovery behavior.
 
-::
+The easiest way to troubleshoot is to ready the message printed in the terminals. In the termianl that the state machine is started one ccan see which state that has been executed. It will give a hint there the mission is aborted.
 
->$ rostopic pub /send_mission minireach_executive
-
-    and then tab to recive
-
-::
->$ pallet:0 pallet place:0
-
-    you can alter the pallet and pallet place by changing the numbers
-
-    -You have now sent the mission to get the given pallet and leave it on the pallet place
+In the terminal there ``smach_pallet.py`` has started
 
 
 

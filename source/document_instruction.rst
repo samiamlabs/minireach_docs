@@ -1,3 +1,5 @@
+.. _document_instruction:
+
 Instruction to write document
 =============================
 
@@ -73,4 +75,10 @@ Picture
    :width: 100%
    :align: center
    :figclass: align-centered
+   
+Reference to other chapter
+--------------------------
 
+You can reference to other chapter for exampel by typing like this: :ref:`document_instruction`. Don't forget to write a label before the topic you would like to refer to.
+	- ".. _document_instruction:"
+	- ":ref:`document_instruction`"
