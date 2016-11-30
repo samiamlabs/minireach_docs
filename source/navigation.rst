@@ -110,3 +110,11 @@ However, you probably want to program your robot. There is a
 `tutorial <http://wiki.ros.org/navigation/Tutorials/SendingSimpleGoals>`_
 on commanding the robot with C++. For examples in Python, look at the demo.py
 code in the ``minireach_gazebo_demo`` package.
+
+Local planner
+-----------------
+The implemented local planner is an online optimal local trajectory planner which uses
+uses a method called TEB (Timed elastic band). It locally optimizes the trajectory of the robot with respect to distance from obstacles, trajectory excecution time while following kinodynamic constraints.
+Read the `documentation <http://wiki.ros.org/teb_local_planner>`_ for further information.
+The planner consists of several parameters which can be tuned in order to enhance the behaviour of the robot. 
+
