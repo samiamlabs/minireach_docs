@@ -29,6 +29,7 @@ Tutorials
    teleop
    navigation
    perception
+   ar_identification
 
 Other
 -----

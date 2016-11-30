@@ -38,13 +38,13 @@ you will need to first build a map of your environment:
 
 ::
 
-    >$ roslaunch minireach_navigation build_map.launch
+    >$ roslaunch minireach_cartographer cartographer.launch
 
-Once you launch build_map, you will want to
+Once you launch cartographer, you will want to
 :doc:`tele-operate the robot </teleop>` the robot around and build
 the map, which can be visualized in RVIZ.
 
-.. note:: The build_map.launch file is not intended to be run at the same time
+.. note:: The cartographer.launch file is not intended to be run at the same time
     as minireach_nav.launch
 
 While driving the robot around, you can view the map in RVIZ.
@@ -65,22 +65,21 @@ These files can then be served by the map_server:
 
     >$ rosrun map_server map_server <map.yaml>
 
-The minireach_nav.launch file used above launches an instance of map_server. It
-has three arguments which control the behavior:
+The minireach_nav.launch file used above launches an istance of map_saver to load the map. 
+It takes in the argument 创map_file创 which is the name of the map, the default value is 
+创map_demo创.
 
 ================= ================================
 Argument          Meaning
 ================= ================================
 map_file          YAML file containing map metadata
-map_keepout_file  Additional YAML file containing metadata for a keepout map
-use_keepout       Whether to load and use a keepout map (default: False)
 ================= ================================
 
 You can either pass the arguments from the command line, like:
 
 ::
 
-    >$ roslaunch minireach_navigation minireach_nav.launch map_file:=/path/to/map.yaml
+    >$ roslaunch minireach_nav minireach_nav.launch map_file:=/path/to/map.yaml
 
 Or create a new launch file in your own package which includes launch
 file and passes in arguments:
@@ -88,10 +87,8 @@ file and passes in arguments:
 ::
 
     <launch>
-      <include file="$(find minireach_navigation)/launch/minireach_nav.launch" >
+      <include file="$(find minireach_nav)/launch/minireach_nav.launch" >
         <arg name="map_file" value="$(find my_package)/maps/my_map.yaml" />
-        <arg name="map_keepout_file" value="$(find my_package)/maps/my_keepout_map.yaml" />
-        <arg name="use_keepout" value="true" />
       </include>
     </launch>
 
