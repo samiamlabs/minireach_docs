@@ -38,6 +38,7 @@ Other
 
    api_overview
    release_notes
+   executive
 
 Legal
 -----
