@@ -38,7 +38,7 @@ you will need to first build a map of your environment:
 
 ::
 
-    >$ roslaunch minireach_cartographer cartographer.launch
+    >$ roslaunch minireach_nav cartographer.launch
 
 Once you launch cartographer, you will want to
 :doc:`tele-operate the robot </teleop>` the robot around and build
@@ -66,13 +66,16 @@ These files can then be served by the map_server:
     >$ rosrun map_server map_server <map.yaml>
 
 The minireach_nav.launch file used above launches an istance of map_saver to load the map. 
-It takes in the argument 创map_file创 which is the name of the map, the default value is 
-创map_demo创.
+It takes in the argument 创map_file创 which should be set to the map name, the default value is 创map_demo创.
+The minireach_nav also starts the localization system amcl that takes the initial pose estimation as argument. It is described in x and y coordinates and rotation around the z coordinate in the /map coordinate system according to:
 
 ================= ================================
 Argument          Meaning
 ================= ================================
 map_file          YAML file containing map metadata
+initial_pose_x	  Initial estimation of x coordinate
+initial_pose_y	  Initial estimation of y coordinate
+initial_pose_a	  Initial estimation of rotation around z axis
 ================= ================================
 
 You can either pass the arguments from the command line, like:
@@ -89,12 +92,19 @@ file and passes in arguments:
     <launch>
       <include file="$(find minireach_nav)/launch/minireach_nav.launch" >
         <arg name="map_file" value="$(find my_package)/maps/my_map.yaml" />
+		<arg name="initial_pose_x" value="0.0" />
+		<arg name="initial_pose_y" value="0.0" />
+		<arg name="initial_pose_a" value="0.0" />
       </include>
     </launch>
-
+	
+=====================
+IS THIS RELEVANT??? DOES IT EXIST???
+=====================
 The "keepout" map can be created by copying the YAML file of your saved map,
 editing the name of the ``.pgm`` file and then copying the ``.pgm`` file.
 You can then open the ``.pgm`` file in an image editor, such as GIMP, and black out areas that you do not want the robot to drive through. This must be done in a separate map that is only used for planning so that the edits do not disturb the functionality of localization (AMCL).  
+=====================
 
 Sending Waypoints 
 -----------------
