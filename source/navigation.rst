@@ -120,13 +120,13 @@ This is achieved in the config-files at "minireach/minireach_nav/config/minireac
 In order to ease the setup, see the following hints.
      * Problem 1. Minireach is not keeping enough distance towards obstacle.
        Solved by: 
-       Increase weight_obstacle.
-       Increase inflation_dist.
+       Increase weight_obstacle. 
+       Increase inflation_dist. 
        Increase min_obstacle_dist.
      * Problem 2. Minireach oscilliates when traveling towards a goal.
-       Solved by:
-       Decrease weight_viapoint.
-       Increase weight_optimaltime.
+       Solved by: 
+       Decrease weight_viapoint. 
+       Increase weight_optimaltime. 
        Decrease inflation_radius.
      * Problem 3. Minireach seems slow and takes to much time to "think".
        Decrease number of iterations; no_inner_iterations, no_outer_iterations.

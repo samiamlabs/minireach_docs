@@ -80,5 +80,19 @@ The easiest way to troubleshoot is to ready the message printed in the terminals
 In the terminal there ``smach_pallet.py`` has started
 
 
+Interpreting errors while executing pallet handling 
+------------
+
+When performing tasks, several errors can occur in the states. This section describes the cause of some of the nontrival arisen errors.
+
+	- *Failed to locate: 'FRAME'*. A transform could not be found between obstacle frame and base footprint. This error might occur when attempting to drive under pallet and using the obstacle frame as reference.
+	
+	- *Transform Not Found*. This error arises when looking for a transform between pallet station or pallet and the base footprint of the robot. This is used when calculating the distance left to pallet or station.
+	
+	- *Transform not found to obstacle_0*. This error is related to the reversing after leaving pallet a pallet. The state is listening for the latest published detected obstacle to make sure reversing is safe.
+
+	
+
+
 
 
