@@ -81,7 +81,7 @@ In the terminal there ``smach_pallet.py`` has started
 
 
 Interpreting errors while executing pallet handling 
-------------
+---------------------------------------------------
 
 When performing tasks, several errors can occur in the states. This section describes the cause of some of the nontrival arisen errors.
 

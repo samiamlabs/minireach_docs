@@ -41,5 +41,8 @@ Before getting started, below is an overview of what you need to use and operate
    and keyboard to the connectors on the raspberry pi and jetson computers.
 
 * **MiniReach Support**
+ 
  - Please contact Samuel.Lindgren@toyota-industries.eu if you experience any problems.
+ 
+ 
 

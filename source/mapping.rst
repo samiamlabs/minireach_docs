@@ -22,7 +22,8 @@ If this map needs to be altered the state machine also provides services to simp
 
 shuts down amcl
 opens cartographer
-	-sets the global origo for the map 
+
+	- sets the global origo for the map 
 
 
 /to_positioning
@@ -31,5 +32,6 @@ saves the map
 saves the current position 
 closed down cartographer
 opens up minireach_nav
-loads map 
-	-with current position
+loads map
+
+	- with current position
