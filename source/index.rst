@@ -40,7 +40,7 @@ Other
    api_overview
    release_notes
    executive
-   mapping
+   change_mode
 
 Legal
 -----
