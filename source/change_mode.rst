@@ -14,24 +14,14 @@ If this map needs to be altered the state machine also provides services to simp
 ::
 
 	>$ rosservice call /to_mapping 
-	and 
 	>$ rosservice call /to_positioning 
 
 /to_mapping 
 ------------
-
-shuts down amcl
-opens cartographer
-
-	- sets the global origo for the map 
-
+To_mapping shuts down amcl and starts catrographer. 
+When cartographer starts the global origo of the map sets to the current position. In order to avoid faulty transformations the saved AR tags files are cleaned when calling upon this service. However the AR tags seen during the mapping is saved with the new map used in the transformation.
 
 /to_positioning
 ---------------
-saves the map
-saves the current position 
-closed down cartographer
-opens up minireach_nav
-loads map
-
-	- with current position
+The service to_positioning saves the current map and the current pose of the forklift. 
+It shuts down the node cartographer and starts amcl with the new map and the current pose as input arguments. 
