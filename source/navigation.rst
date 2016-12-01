@@ -66,7 +66,7 @@ These files can then be served by the map_server:
     >$ rosrun map_server map_server <map.yaml>
 
 The minireach_nav.launch file used above launches an istance of map_saver to load the map. 
-It takes in the argument 创map_file创 which should be set to the map name, the default value is 创map_demo创.
+It takes in the argument ``map_file`` which should be set to the map name, the default value is ``map_demo``.
 The minireach_nav also starts the localization system amcl that takes the initial pose estimation as argument. It is described in x and y coordinates and rotation around the z coordinate in the /map coordinate system according to:
 
 ================= ================================
@@ -128,6 +128,7 @@ The planner consists of several parameters which can be tuned in order to enhanc
 In event of unwanted driving-behaviour from minireach, one solution could be to modify the parameters of the local planner and connected maps.
 This is achieved in the config-files at "minireach/minireach_nav/config/minireach_gazebo/base_local_planner_params.yaml".
 In order to ease the setup, see the following hints.
+
      * Problem 1. Minireach is not keeping enough distance towards obstacle.
        Solved by: 
        Increase weight_obstacle. 
