@@ -1,5 +1,4 @@
 .. _document_instruction:
-
 Instruction to write document
 =============================
 

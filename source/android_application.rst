@@ -1,3 +1,4 @@
+.. _gui:
 Tutorial: Android Application
 =============================
 

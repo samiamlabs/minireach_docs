@@ -15,6 +15,19 @@ The Executive State machine is built upon python code for state machines called 
 
 	- *Leave_pallet*: handles functionalities to call a serivce (deliver_pallet) to position the forks over the pallet place and lower them.
 	
+Below a picture i presented with all states:
+
+.. figure:: _static/executive/sm_top.png
+   :width: 100%
+   :align: center
+   :figclass: align-centered
+	
+Below is sub-state *Go_to_pallet* presented:
+
+.. figure:: _static/executive/go_to_pallet.png
+   :width: 100%
+   :align: center
+   :figclass: align-centered
 .. note::
 
 	Please consult the ros wiki: http://wiki.ros.org/smach, to learn more about smach state.
@@ -67,7 +80,7 @@ This is a short tutorial on how to use the Executive state machine
 
 	Don't forget to abort the publishing message, *ctrl + c* in the terminal. If not the forklift will start a new mission direct after finished the first one.
 	
-The mission can also be sent from the GUI, see XXXXXXXXXX for more information.
+The mission can also be sent from the GUI, see Tutorial for Android application for more information.
 
 
 Troubleshooting
@@ -77,7 +90,7 @@ If something goes wrong or the forklift is not capable to prefrom its task the m
 
 The easiest way to troubleshoot is to ready the message printed in the terminals. In the termianl that the state machine is started one ccan see which state that has been executed. It will give a hint there the mission is aborted.
 
-In the terminal there ``smach_pallet.py`` has started
+In the terminal there ``smach_pallet.py`` has started information about different task is printed. See next section for information about controller problems.
 
 
 Interpreting errors while executing pallet handling 

@@ -42,7 +42,9 @@ you will need to first build a map of your environment:
 
 Once you launch cartographer, you will want to
 :doc:`tele-operate the robot </teleop>` the robot around and build
-the map, which can be visualized in RVIZ.
+the map, which can be visualized in RVIZ. 
+
+.. note:: During mapping only stationary objects should be in the mapping area, thus pallets and other objects needs to be moved away. This is because objects seen during the mapping mode is considered as obstacles. 
 
 .. note:: The cartographer.launch file is not intended to be run at the same time
     as minireach_nav.launch
@@ -65,8 +67,7 @@ These files can then be served by the map_server:
 
     >$ rosrun map_server map_server <map.yaml>
 
-The minireach_nav.launch file used above launches an istance of map_saver to load the map. 
-It takes in the argument ``map_file`` which should be set to the map name, the default value is ``map_demo``.
+The minireach_nav.launch file used above launches an instance of map_saver to load the map. It takes in the argument ``map_file`` which should be set to the map name, the default value is ``map_demo``.
 The minireach_nav also starts the localization system amcl that takes the initial pose estimation as argument. It is described in x and y coordinates and rotation around the z coordinate in the /map coordinate system according to:
 
 ================= ================================
@@ -97,14 +98,6 @@ file and passes in arguments:
 		<arg name="initial_pose_a" value="0.0" />
       </include>
     </launch>
-	
-=====================
-IS THIS RELEVANT??? DOES IT EXIST???
-=====================
-The "keepout" map can be created by copying the YAML file of your saved map,
-editing the name of the ``.pgm`` file and then copying the ``.pgm`` file.
-You can then open the ``.pgm`` file in an image editor, such as GIMP, and black out areas that you do not want the robot to drive through. This must be done in a separate map that is only used for planning so that the edits do not disturb the functionality of localization (AMCL).  
-=====================
 
 Sending Waypoints 
 -----------------
