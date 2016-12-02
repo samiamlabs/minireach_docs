@@ -30,6 +30,7 @@ Tutorials
    navigation
    perception
    ar_identification
+   android_application
 
 Other
 -----
