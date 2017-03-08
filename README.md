@@ -4,13 +4,14 @@ Building New Releases
 Install prerequisites:
 
 ```
+sudo apt install pip
 sudo pip install sphinx
+sudo pip install sphinx_rtd_theme
 ```
 
 ```
 make html
 make latexpdf
-git push origin gh-pages
 ```
 
 Troubleshooting:
