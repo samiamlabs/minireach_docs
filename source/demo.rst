@@ -195,7 +195,7 @@ tool to place it into the rack.
 
 You also need to give the pallet an ID and tell the truck where it is in order
 to be able to interact with it. At the time of writing this tutorial, there is
-no way to do this using a graphical interface. (This may have added when you
+no way to do this using a graphical interface. (This may have been added when you
 read this...)
 
 .. figure:: _static/rviz_add_empty_pallet.png
