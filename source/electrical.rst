@@ -27,13 +27,13 @@ comprises among other things:
    :figclass: align-centered
 
 
-MiniReach has a 25.9V lithium-ion battery in the base. (see
-:ref:`charging`).
-
 .. _powerdistribution:
 
 Power Distribution
 ++++++++++++++++++
+
+The truck has a 25.9V lithium-ion battery in the base. (see
+:ref:`charging`).
 
 .. figure:: _static/electrical.png
    :width: 80%
@@ -47,7 +47,7 @@ Power Disconnect Switch
 +++++++++++++++++++++++
 
 The power disconnect is on the right side of the battery. This switch
-cuts the power between the battery all systems on the robot.
+cuts the power between the battery and all systems on the robot.
 
 .. figure:: _static/power_switch_arrow.png
    :width: 80%

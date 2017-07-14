@@ -8,7 +8,7 @@ Starting the Simulator
 ----------------------
 
 The ``minireach_simulator`` "stack" (a stack is a collection of ROS packages) provide the Gazebo
-environment for the truck. The ``minireach_gazebo`` pakckage includes
+environment for the truck. The ``minireach_gazebo`` packages the following launch files:
 
  * `monosim.launch`:  spawns a truck in a miniature warehouse with bootstrap software
  * `multisim.launch`: spawns multiple trucks in a miniature warehouse, each with bootstrap software running in a separate "ros master" for each truck

@@ -21,7 +21,7 @@ and the password is `minireach`.
 Clock Synchronization
 ---------------------
 
-It is recommended to install the chrony NTP client on both robots and desktops
+It is recommended to install the chrony NTP client on both trucks and desktops
 in order to keep their time synchronized. To install chrony on Ubuntu:
 
 ::
@@ -34,10 +34,10 @@ in order to keep their time synchronized. To install chrony on Ubuntu:
 Upstart Services
 ----------------
 
-Minireach uses robot_upstart to start and manage various services on the robot.
+Minireach uses robot_upstart to start and manage various services on the truck.
 
 Upstart service can be restart with the `service` command. For instance, to
-restart the robot drivers:
+restart the truck drivers:
 
 ::
 
@@ -48,5 +48,5 @@ restart the robot drivers:
 Log Files
 ---------
 
-A number of log files are created on the robot. The most recent logs related to robot_upstart
+A number of log files are created on the truck. The most recent logs related to robot_upstart
 services can be viewed using: sudo tail /var/log/upstart/minireach.log -n 30

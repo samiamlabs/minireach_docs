@@ -6,7 +6,7 @@ Care And Feeding
 Charging
 --------
 
-The robot is charged by connecting a lab voltage supply set to 28.5V and limited to 10A.
+The truck is charged by connecting a lab voltage supply set to 28.5V and limited to 10A.
 
 .. warning::
 

@@ -34,7 +34,7 @@ Using rocon_remocon
 
 `Qt remocon <http://wiki.ros.org/rocon_app_manager/Tutorials/indigo/Run%20Interactions%20with%20QT%20Remocon/>`_
 is part of the `Robotics In Concert <http://wiki.ros.org/rocon/indigo/Guide>`_ framework, often refered to as `rocon`.
-This is a simple graphical interface that allows you to interact with compatible robots.
+This is a simple graphical interface that allows you to interact with compatible robots/trucks.
 
 If you have a clean install, the `Ros Master List` will be empty.
 To add a new `Ros Master` press the `Add` button.
@@ -186,7 +186,7 @@ If there are no empty pallets in the simulation environment, you need to add one
    :figclass: align-centered
 
 You can to this by selecting `pall` under the `Insert` tab and using the move
-tool to place it in to the rack.
+tool to place it into the rack.
 
 .. figure:: _static/gazebo_pallet.png
    :width: 100%

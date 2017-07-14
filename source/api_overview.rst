@@ -18,7 +18,7 @@ The fork and reach of the robot are controlled by an interface defined in
 `robot_mechanism_controllers/JointPositionController <http://wiki.ros.org/robot_mechanism_controllers/JointPositionController>`_
 
 Publishing a float to the /minireach/fork_position_controller/command topic will make the controller try to move the linear motor that controls the fork to an extension defined by the float in meters. For the moment, 
-height 0.0 is calibrated to mean that the underside of the forks are touching the ground and can not go any lower. The top of the forks will end up at about 1 cm (thikness of forks) above the published height because of this.
+height 0.0 is calibrated to mean that the underside of the forks are touching the ground and can not go any lower. The top of the forks will end up at about 1 cm (thickness of the forks) above the published height because of this.
 
 The reach joint can be controlled in a similar manner by publishing to /minireach/reach_position_controller/command.
 
