@@ -7,7 +7,7 @@ MiniReach has a simulated counterpart using the
 Starting the Simulator
 ----------------------
 
-The ``minireach_simulator`` "stack" (a stack is a collection of ros packages) provide the Gazebo
+The ``minireach_simulator`` "stack" (a stack is a collection of ROS packages) provide the Gazebo
 environment for MiniReach. The ``minireach_gazebo`` pakckage includes
 
  * monosim.launch spawns a truck in a miniature warehouse with bootstrap software
@@ -24,8 +24,8 @@ To start one simulated truck, use the following terminal command: ::
    :figclass: align-centered
 
 
-The gazebo client will start and you should se something like the following
-on your screen:
+The gazebo client will start and you should se something like the miniature warehouse 
+in the image below on your screen:
 
 .. figure:: _static/gazebo.png
    :width: 100%

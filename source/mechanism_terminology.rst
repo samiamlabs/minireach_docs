@@ -15,7 +15,7 @@ components in the robot.
 Link
 ++++
 
-The links for MiniReach are defined in the URDF description
+The links are defined in the URDF description
 that are located in the minireach_description package.
 
 Frame
@@ -23,18 +23,18 @@ Frame
 
 Frames represent the coordinate frames of links, detected objects,
 sensors, or the location of another robot in the world. Frames are
-define relative to other frames and the transformations between each
+defined relative to other frames and the transformations between each
 frame is tracked using TF. See http://wiki.ros.org/tf for more
 information.
 
 Joint
 +++++
 
-A joints define the relationship between links and are defined in the
+A joint describes the relationship between links and are defined in the
 URDF description that can be found in the minireach_description
-package. In MiniReach drive and steer joints are rotational, the fork
+package. The drive and steer joints are rotational, the fork
 and reach joint are prismatic, and there are several fixed joints describing
-the location of sensors within the robot.
+the location of sensors on the truck.
 Rotational and translational joints are represented
 similarly in the URDF, and joint forces are described as *effort*
 instead of force or torque. Position, and velocity are both used to
@@ -44,9 +44,9 @@ describe linear and angular motion of a joint.
 Coordinate System
 +++++++++++++++++
 
-The coordinate frames for most links in the MiniReach are defined
+The coordinate frames for most links are defined
 with positive z-axis up, positive x-axis in drive wheel direction and
-positive y-axis to the robot-left when facing drive wheel direction.
+positive y-axis to the truck-left when facing drive wheel direction.
 
 Naming Conventions
 ++++++++++++++++++

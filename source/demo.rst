@@ -2,13 +2,13 @@ Tutorial: Demo
 ====================
 
 The goal of this tutorial is to make the simulated truck move pallets between
-storage places in diffrent racks.
+storage locations in diffrent racks.
 
 We first start the system in "monosim" mode by running the terminal command
 
 ::
 
-    > roslaunch minireach_gazebo monosim.launch
+  roslaunch minireach_gazebo monosim.launch
 
 .. figure:: _static/start.png
    :width: 100%
@@ -85,15 +85,15 @@ After a while the rapp interface below should pop up on your screen.
    :figclass: align-centered
 
 
-We could star using the rapp now, but to better se what is going on we sould start
-some vizualisation tools first. Click back to return to the `Role Chooser`.
+We could start using the rapp now, but to get a better idea about what is going on we sould start
+a vizualisation tools first. Click back to return to the `Role Chooser`.
 
 .. figure:: _static/remocon_handle_pallet_back.png
    :width: 100%
    :align: center
    :figclass: align-centered
 
-This time Select Admin in staid of User in the interface.
+This time Select `Admin` in staid of `User` in the interface.
 
 .. figure:: _static/remocon_roll_admin.png
    :width: 100%
@@ -141,8 +141,8 @@ in a rack.
    :align: center
    :figclass: align-centered
 
-At this point we could start moving the detected pallet to other storage
-locations in the same rack, but let add some more racks first.
+At this point we could start moving the already detected pallet to other storage
+locations in the same rack, but lets add some more racks before we do anything else.
 
 .. figure:: _static/mission/mission1.png
    :width: 100%

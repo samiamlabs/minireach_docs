@@ -69,9 +69,9 @@ The visualization of the safety fields turns red when some obstacle (red arrow)
 is in the stop field (red rectangle). This completly stops the truck from moving
 in that direction.
 
-This terminal command diables safety as long as it is running:
+This terminal command diables safety as long as it is running: ::
 
-    >$ rostopic pub -r 10 /disable_safety std_msgs/String "data: ''"
+  rostopic pub -r 10 /disable_safety std_msgs/String "data: ''"
 
 .. figure:: _static/safety_off.png
    :width: 100%
@@ -90,7 +90,7 @@ Publishing a float to the /minireach/camera_tilt_controller/command topic will m
 
 ::
 
-    >$ rostopic pub /camera_tilt_controller/command std_msgs/Float6"data: 0.8"
+  rostopic pub /camera_tilt_controller/command std_msgs/Float6"data: 0.8"
 
 .. _camera_api:
 
@@ -106,8 +106,6 @@ The fork facing camera exposes several topics of interest:
  * `camera/depth_registered/points` is a `sensor_msgs/PointCloud2 <http://docs.ros.org/api/sensor_msgs/html/msg/PointCloud2.html>`_
    which has both 3d and color data. It is published at VGA resolution (640x480)
    at 30Hz.
- * `camera/rgb/image_raw` is a `sensor_msgs/Image <http://docs.ros.org/api/sensor_msgs/html/msg/Image.html>`_.
-   This is just the 2d color data. It is published at VGA resolution (640x480)
  * `camera/rgb/image_raw` is a `sensor_msgs/Image <http://docs.ros.org/api/sensor_msgs/html/msg/Image.html>`_.
    This is just the 2d unrectified color data. It is published at VGA resolution (640x480)
  * `camera/rgb/image_rect_color` is a `sensor_msgs/Image <http://docs.ros.org/api/sensor_msgs/html/msg/Image.html>`_.

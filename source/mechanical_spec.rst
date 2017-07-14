@@ -39,7 +39,7 @@ Water
 Forces and Torques
 ++++++++++++++++++
 
-Joint position, velocity, and force limits are implemented in the
-MiniReach URDF file as well as in firmware. These joint limits control
+Joint position, velocity, and force limits are implemented in the 
+URDF file as well as in firmware. These joint limits control
 the range of travel of the mechanism and the allowable velocity to prevent
 over-travel.

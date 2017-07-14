@@ -4,10 +4,10 @@ Sensor Overview
 Laser Scanners
 ++++++++++
 
-MiniReach has two Sick TiM 561 laser scanners. One mounted in the
-drive wheel direction and on in the fork direction. The
+The truck has two Sick TiM 561 laser scanners. One mounted in the
+drive wheel direction and the other in the fork direction. The
 lasers have a range of 10m, 270° field of view, 15Hz update rate
-and angular resolution of 0.33°. The lasers publishes distance
+and angular resolution of 0.33°. They publish distances
 to the **scan1** and **scan2** topics in ROS.
 
 .. figure:: _static/sick561.png
@@ -18,8 +18,8 @@ to the **scan1** and **scan2** topics in ROS.
 3D Camera
 +++++++++++
 
-MiniReach has an Orbbec Astra 3D camera in the fork direction. This
-camera is best calibrated in the 0.4-8m range. See :ref:`camera_api`
+The truck has an Orbbec Astra 3D camera in the fork direction. This
+depth camera works best in the 0.4-8m range. See :ref:`camera_api`
 for details on the ROS API.
 
 .. figure:: _static/astra.png
