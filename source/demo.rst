@@ -203,7 +203,7 @@ read this...)
    :align: center
    :figclass: align-centered
 
-For now you can use the following terminal command to add an empty pallet with ID 9 
+For now you can use the following terminal command to add an empty pallet with ID 9
 to storage location 1c.
 
 .. figure:: _static/terminal_add_pallet.png
@@ -240,3 +240,27 @@ tracking it.
    :width: 100%
    :align: center
    :figclass: align-centered
+
+
+Running demo on real trucks
+---------------------------
+
+Running the demo on the real truck is pretty similar to running it in simulation with some extra steps.
+First turn on the main power switch and the industrial computer. You should be able to use
+`NoMachine <https://www.nomachine.com/>`_ to open a remote destkop on the truck computer and connect your
+computer to it. ::
+
+  User: toyota, Password: minireach
+
+If the remote desktop does not work, you may need to ssh into the truck and run::
+
+  sudo /etc/init.d/nxserver restart
+
+On the remote desktop, you sould be able to run the following in a terminal::
+
+  rocon_remocon
+
+At this point the interface (Qt remocon) should start and you can follow the same steps as in
+the simulation-tutorial above to start moving pallets.
+
+If something does not work right away, refer to the troubleshooting section :ref:`troubleshooting`

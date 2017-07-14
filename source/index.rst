@@ -34,7 +34,8 @@ Other
 
 .. toctree::
    :maxdepth: 2
-
+  
+   troubleshooting
    api_overview
 
 Indices and tables
