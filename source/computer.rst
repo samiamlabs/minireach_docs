@@ -1,7 +1,7 @@
 Truck Computer Overview and Configuration
 ===================================
 
-MiniReach has an industrial computer which runs a
+The truck has an industrial computer which runs a
 Long Term Support (LTS) release of Ubuntu (14.04) and an LTS release of
 ROS (Indigo). These releases are intended to give long-term stability to
 the system.

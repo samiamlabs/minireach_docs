@@ -4,13 +4,13 @@ Mechanism Terminology
 The MiniReach kinematics are defined by using the concepts of
 joints, links, and coordinate frames. The robot URDF (unified robot
 description format) model specifies the attributes (kinematic tree,
-names, ranges, etc.) of the joints, links, and frames of the robot. A
+names, ranges, etc.) of the joints, links, and frames of the truck. A
 link element in the URDF describes a rigid body with inertia, visual
 features, and coordinate frames. A joint element in the URDF defines
 the kinematics, dynamics, safety limits, and type (revolute,
 continuous fixed, prismatic, floating, or planar). Fixed joints are
 typically used to describe the relationship between two rigidly joined
-components in the robot.
+components in the truck.
 
 Link
 ++++
@@ -22,7 +22,7 @@ Frame
 +++++
 
 Frames represent the coordinate frames of links, detected objects,
-sensors, or the location of another robot in the world. Frames are
+sensors, or the location of another truck in the world. Frames are
 defined relative to other frames and the transformations between each
 frame is tracked using TF. See http://wiki.ros.org/tf for more
 information.

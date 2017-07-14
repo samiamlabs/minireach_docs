@@ -53,7 +53,7 @@ Doubleclick this entry to continue.
    :figclass: align-centered
 
 .. note:: Sometimes a part of the interface system does not start property. You will then get the
- error message seen below. This sould go away if you restart `monosim` but you may
+ error message seen below. This should go away if you restart `monosim` but you may
  sometimes need to log out from your linux user and log back in again to make it
  work.
 
@@ -63,7 +63,7 @@ Doubleclick this entry to continue.
    :figclass: align-centered
 
 Doubleclick `User` to see available `Robot Apps <http://wiki.ros.org/rocon/indigo/Guide#rocon_app_platform.Rapps>`_
-or `rapps` as they are usually refered to.
+or `rapps`.
 
 .. figure:: _static/remocon_roll_user.png
    :width: 100%
@@ -77,7 +77,7 @@ In this demo we will use the `Handle Pallet` rapp, so dobleclick on that to star
    :align: center
    :figclass: align-centered
 
-After a while the rapp interface below should pop up on your screen.
+The rapp interface in the image below should pop up on your screen after a while.
 
 .. figure:: _static/remocon_app_pairing.png
    :width: 100%
@@ -85,8 +85,8 @@ After a while the rapp interface below should pop up on your screen.
    :figclass: align-centered
 
 
-We could start using the rapp now, but to get a better idea about what is going on we sould start
-a vizualisation tools first. Click back to return to the `Role Chooser`.
+We could start using the rapp to move pallets now, but to get a better idea about what is going on we sould start
+a vizualisation tool first. Click `Back` to return to the `Role Chooser`.
 
 .. figure:: _static/remocon_handle_pallet_back.png
    :width: 100%
@@ -100,7 +100,7 @@ This time Select `Admin` in staid of `User` in the interface.
    :align: center
    :figclass: align-centered
 
-This will give us access to start buttons for several vizualisation tools. The
+This will give us access to "start buttons" for several vizualisation tools. The
 one will want to start now is called `rviz <http://wiki.ros.org/rviz>`_
 This tool displays sensor data and what the truck "knows" about its environment.
 
@@ -114,7 +114,7 @@ by pressing the button in rviz the on the position in the map where you want the
 truck to go.
 
 See the tutorial on using RVIZ with navigation in the RVIZ
-`documentation <http://wiki.ros.org/navigation/Tutorials/Using%20rviz%20with%20the%20Navigation%20Stack>`_ .
+`documentation <http://wiki.ros.org/navigation/Tutorials/Using%20rviz%20with%20the%20Navigation%20Stack>`_.
 
 .. figure:: _static/rviz_move.png
    :width: 100%
@@ -142,7 +142,7 @@ in a rack.
    :figclass: align-centered
 
 At this point we could start moving the already detected pallet to other storage
-locations in the same rack, but lets add some more racks before we do anything else.
+locations in the same rack, but let's add some more racks before we do anything else.
 
 .. figure:: _static/mission/mission1.png
    :width: 100%
@@ -175,8 +175,8 @@ To start moving pallets do the following:
    :figclass: align-centered
 
 
-Moving a pallet with no AR-marker
----------------------------------
+Moving an empty pallet (no AR-marker)
+-------------------------------------
 
 If there are no empty pallets in the simulation environment, you need to add one.
 
@@ -203,7 +203,8 @@ read this...)
    :align: center
    :figclass: align-centered
 
-For now you can use the following terminal command to to this.
+For now you can use the following terminal command to add an empty pallet with ID 9 
+to storage location 1c.
 
 .. figure:: _static/terminal_add_pallet.png
    :width: 100%

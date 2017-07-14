@@ -10,5 +10,5 @@ The robot is charged by connecting a lab voltage supply set to 28.5V and limited
 
 .. warning::
 
-   When the lab supply is connected to the battery, there mey be a spark even if
+   When the lab supply is connected to the battery, there may be a spark even if
    the supply is turned off because of the output capacitor on the supply.

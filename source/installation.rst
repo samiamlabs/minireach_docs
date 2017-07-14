@@ -1,8 +1,7 @@
 Installing Truck Simulator
 ==========================
 
-You will need an installation of ROS Indigo for the following instructions
-to work. You can find a guide for installing it  
+ROS Indigo needs to be installed before you can use these instructions. You can find a guide for installing it 
 `here <http://wiki.ros.org/indigo/Installation/Ubuntu>`_.
 
 Install wstool and rosdep. ::

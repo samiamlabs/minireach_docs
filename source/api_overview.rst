@@ -10,10 +10,6 @@ Whenever possible, we have conformed to the
 `ROS Enhancement Proposals (REPs) <http://www.ros.org/reps/rep-0000.html>`_.
 These documents provide the foundation of standard ROS interfaces.
 
-In addition to REP-compatible interfaces, we have adopted a number of the community-accepted
-standard interfaces, such as those provided by the
-`control_msgs <http://wiki.ros.org/control_msgs>`_ package.
-
 
 Fork and Reach
 --------------
@@ -21,10 +17,10 @@ Fork and Reach
 The fork and reach of the robot are controlled by an interface defined in
 `robot_mechanism_controllers/JointPositionController <http://wiki.ros.org/robot_mechanism_controllers/JointPositionController>`_
 
-Publishing a float to the /minireach/fork_position_controller/command topic will make the controller try to move the linear motor that controls the fork to an extension defined by the float in meters. The fork mechanism will make the forks move to a distance over the floor that is that is twice that of the motor extension. For example, publishing a float with the value 0.3 would move the forks to a position 0.6 meters above the floor.
+Publishing a float to the /minireach/fork_position_controller/command topic will make the controller try to move the linear motor that controls the fork to an extension defined by the float in meters. For the moment, 
+height 0.0 is calibrated to mean that the underside of the forks are touching the ground and can not go any lower. The top of the forks will end up at about 1 cm (thikness of forks) above the published height because of this.
 
 The reach joint can be controlled in a similar manner by publishing to /minireach/reach_position_controller/command.
-
 
 Only one controller is allowed to control a joint at a time.
 
@@ -46,15 +42,15 @@ Only two fields are used in the message:
  * ``angular.z`` specifies the robot's turning velocity
 
 User applications will typically not connect directly to `base_controller/command`,
-but rather to `cmd_vel`. A multiplexer is always running between `teleop_vel`
-and `cmd_vel`. Whenever the deadman on the robot controller is held, `teleop_vel`
-will override `cmd_vel`. The advantage of having your application publish to `cmd_vel`
+but rather to `cmd_vel` or `nav_vel`. A multiplexer is always running between `teleop_vel`
+and `cmd_vel` and a few other topics. Whenever the deadman on the robot controller is held, `teleop_vel`
+will override `cmd_vel`. The advantage of having your application publish to `nav_vel`
 rather than directly to `base_controller/command` is that you can override bad
 commands by simply pressing the deadman on the robot controller.
 
-The system implements a speed reduction when in the proximity of
+The truck has support for speed reduction when in the proximity of
 obstacles. When this system is active, the truck will not be able to drive into
-obstacles that are detected by the laser scanners and limit the speed close to
+obstacles that are detected by the laser scanners. Is will also limit the maximum allowed speed close to
 obstacles.
 This prevents the truck from picking upp pallets, so it has to be deactivated
 during pallet handling.
@@ -108,9 +104,7 @@ The fork facing camera exposes several topics of interest:
    at 30Hz.
  * `camera/rgb/image_raw` is a `sensor_msgs/Image <http://docs.ros.org/api/sensor_msgs/html/msg/Image.html>`_.
    This is just the 2d unrectified color data. It is published at VGA resolution (640x480)
- * `camera/rgb/image_rect_color` is a `sensor_msgs/Image <http://docs.ros.org/api/sensor_msgs/html/msg/Image.html>`_.
-   This is the rectified 2d color data. In simulation this topic is a slightly delayed copy of `camera/rgb/image_raw`.
-   On the real truck this
+ * `camera/rgb/image_rect_color` is a `sensor_msgs/Image <http://docs.ros.org/api/sensor_msgs/html/msg/Image.html>`_.  This is the rectified 2d color data. In simulation this topic is a slightly delayed copy of `camera/rgb/image_raw`.  On the real truck this
    It is published at VGA resolution (640x480)
    at 3330Hz.
 
@@ -119,5 +113,6 @@ The fork facing camera exposes several topics of interest:
 Laser Interface
 ---------------
 
-`scan` is a `sensor_msgs/LaserScan <http://docs.ros.org/api/sensor_msgs/html/msg/LaserScan.html>`_
-message published at 10Hz.
+`scan1` is a `sensor_msgs/LaserScan <http://docs.ros.org/api/sensor_msgs/html/msg/LaserScan.html>`_ from the fork laser.
+`scan2` is a `sensor_msgs/LaserScan <http://docs.ros.org/api/sensor_msgs/html/msg/LaserScan.html>`_ from the drive_wheel laser.
+`scan` is a merged version of `scan1` and `scan2` on the `base footprint` frame. (used by SLAM algoritm)

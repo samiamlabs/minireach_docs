@@ -54,9 +54,6 @@ above) and use the left joystick.
 
     Whenever driving the robot, always lower the fork to avoid damaging objects and people
 
-To control the 3D camera, release the secondary
-deadman (button 11). The right joystick now controls camera tilt.
-
 
 Moving the Base with your Keyboard
 ----------------------------------
