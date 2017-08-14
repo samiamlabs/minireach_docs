@@ -42,3 +42,4 @@ Random Walk Mapping creates a map of its environment where it can drive around.
 Random Walk AMCL receives the map from Random Walk Mapping and tries to position itself in it.
 
 The apps are started with rocon_remocon described in TODO: ADD LINK TO SAMUELS DEMO
+asd
