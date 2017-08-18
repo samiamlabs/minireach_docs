@@ -1,0 +1,467 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Component: Pallet tracker &mdash; minireach latest documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="minireach latest documentation" href="index.html"/>
+        <link rel="next" title="Troubleshooting" href="troubleshooting.html"/>
+        <link rel="prev" title="Perception Resources" href="perception.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> minireach
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installing Truck Simulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="robot_hardware.html">Robot Hardware Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computer.html">Truck Computer Overview and Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="care_and_feeding.html">Care And Feeding</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gazebo.html">Tutorial: Gazebo Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Tutorial: Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multi-agent_demo.html">Tutorial: Multiple trucks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="teleop.html">Tutorial: Robot Teleop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="perception.html">Perception Resources</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Component: Pallet tracker</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#files-neccesary-for-the-tracker">Files neccesary for the tracker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tracker-initialization">Tracker initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tracking-using-visp">Tracking using VISP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#calculate-feedback-for-each-tracker">Calculate feedback for each tracker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ranking-using-template-matching">Ranking using template matching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ranking-using-adaboost-instead">Ranking using AdaBoost instead</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#change-model-or-create-your-own-model">Change model or create your own model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#known-problems-and-suggested-solutions">Known problems and suggested solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#future-work">Future Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#suggestion-for-extensions">Suggestion for extensions</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="known_issues.html">Known Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_overview.html">API Overview</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">minireach</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Component: Pallet tracker</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/pallet_tracker.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="component-pallet-tracker">
+<h1>Component: Pallet tracker<a class="headerlink" href="#component-pallet-tracker" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The pallet tracker is using Visual Servoing platform (ViSP) 3.0.0 to track a pallet.</p>
+<p>Documentation for the ViSP project can be found here:  <a class="reference external" href="https://visp.inria.fr/">https://visp.inria.fr/</a></p>
+<p>Documentation for the ViSP ROS package can be found here: <a class="reference external" href="http://wiki.ros.org/visp_tracker">http://wiki.ros.org/visp_tracker</a></p>
+<p>The tracking of a pallet is mainly divided into different steps</p>
+<ul class="simple">
+<li>Finding the pallet using an initial pose<ul>
+<li>Calulating a score for each track.</li>
+<li>Choose the best track after a few iterations.</li>
+</ul>
+</li>
+<li>Tracking the pallet.</li>
+</ul>
+</div>
+<div class="section" id="files-neccesary-for-the-tracker">
+<h2>Files neccesary for the tracker<a class="headerlink" href="#files-neccesary-for-the-tracker" title="Permalink to this headline">¶</a></h2>
+<p>In the models folder all files neccesary for the tracker are specified:</p>
+<div class="highlight-python"><div class="highlight"><pre>models/
+└── euro-pallet-aisles
+    ├── euro-pallet-aisles.0.pos
+    ├── euro-pallet-aisles.ac
+    ├── euro-pallet-aisles.cao
+    ├── euro-pallet-aisles.init
+    ├── euro-pallet-aisles.ppm
+    ├── euro-pallet-aisles-real.jpg
+    ├── euro-pallet-aisles-sim.jpg
+    └── tracker.yaml
+</pre></div>
+</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="88%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">File</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>euro-pallet-aisles.0.pos*</td>
+<td>Holds the last pose when the tracker did an update. It is written automatically</td>
+</tr>
+<tr class="row-odd"><td>euro-pallet-aisles.ac*</td>
+<td>Not exactly sure what the file does. It is probably automatically generated.</td>
+</tr>
+<tr class="row-even"><td>euro-pallet-aisles.cao</td>
+<td>Holds the 3D model for the object that we want to track.</td>
+</tr>
+<tr class="row-odd"><td>euro-pallet-aisles.init</td>
+<td>Defines 4 points in the pallets own coordinate system. These define where you should click in the camera image, to initialize the tracker. This option can be used if you don&#8217;t initialize with a pose.</td>
+</tr>
+<tr class="row-even"><td>euro-pallet-aisles.ppm</td>
+<td>Just an help image to help you where you should click in the image to initialize the tracker.</td>
+</tr>
+<tr class="row-odd"><td>euro-pallet-aisles-sim.jpg</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>euro-pallet-aisles-real.jpg</td>
+<td>These are the files that are used for template matching. One file for the simulator and another one for the real truck.</td>
+</tr>
+<tr class="row-odd"><td>tracker.yaml</td>
+<td>Parameters for the pallet tracker. Read more about how to calibrate the parameters here: <a class="reference external" href="http://visp-doc.inria.fr/doxygen/visp-3.0.0/tutorial-tracking-mb.html#mb_settings_xml">http://visp-doc.inria.fr/doxygen/visp-3.0.0/tutorial-tracking-mb.html#mb_settings_xml</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="tracker-initialization">
+<h2>Tracker initialization<a class="headerlink" href="#tracker-initialization" title="Permalink to this headline">¶</a></h2>
+<p>The initial pose is needed to get an idea of where the pallet could be. The system right now gets the information of where the pallet is by knowing the position of the rack and which storage location in the rack that the pallet should be in. For example &#8220;Pick up pallet <strong>7</strong> in rack <strong>0d</strong>&#8221;.</p>
+<p>A rack has 4 storage locations.:</p>
+<div class="highlight-python"><div class="highlight"><pre>├──────────┤
+│          │
+│  A    B  │
+├──────────┤
+│          │
+│  C    D  │
+├──────────┤
+│          │
+</pre></div>
+</div>
+<p>The tracker starts by throwing out a cloud of trackers where the pallet might be in the storage location. The idea behind this is that at least a few trackers should converge correctly to the real pallet.</p>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/tracking_init.png"><img alt="_images/tracking_init.png" src="_images/tracking_init.png" style="width: 100%;" /></a>
+</div>
+<p>After 5 iterations each tracker get a score and the tracker with the highest score gets a point every iteration. After 10 iterations the tracker with most points is choosen. It gets verified for another 5 iterations. If the mean score drops below 90, the choosen tracker is too unsure and all the trackers are reinitialized. Otherwise the initialization phase was successful and the pallet should be continiously tracked.</p>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/tracking.png"><img alt="_images/tracking.png" src="_images/tracking.png" style="width: 100%;" /></a>
+</div>
+</div>
+<div class="section" id="tracking-using-visp">
+<h2>Tracking using VISP<a class="headerlink" href="#tracking-using-visp" title="Permalink to this headline">¶</a></h2>
+<p>For the tracking itself ViSP Markerless model-based tracking is used. See their own wiki page: <a class="reference external" href="http://visp-doc.inria.fr/doxygen/visp-3.0.0/tutorial-tracking-mb.html">http://visp-doc.inria.fr/doxygen/visp-3.0.0/tutorial-tracking-mb.html</a></p>
+</div>
+<div class="section" id="calculate-feedback-for-each-tracker">
+<h2>Calculate feedback for each tracker<a class="headerlink" href="#calculate-feedback-for-each-tracker" title="Permalink to this headline">¶</a></h2>
+<p>Since the pallets may carry load we focus on the pallet front to get a score of how well the tracker is performing.</p>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/template_matching_flow_chart.png"><img alt="_images/template_matching_flow_chart.png" src="_images/template_matching_flow_chart.png" style="width: 100%;" /></a>
+</div>
+<p>The 3D world coordinates of the corners of the pallet front are calculated. Then the corners are reprojected into the image using the simple relation <tt class="docutils literal"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">Cx</span></tt>, where <tt class="docutils literal"><span class="pre">x</span></tt> is the world coordinate, <tt class="docutils literal"><span class="pre">C</span></tt> the camera matrix and <tt class="docutils literal"><span class="pre">y</span></tt> the image coordinate. See the wikipage for more background about the camera parameters <a class="reference external" href="https://en.wikipedia.org/wiki/Camera_matrix">https://en.wikipedia.org/wiki/Camera_matrix</a>.</p>
+<p>When the corner positions in the image of the pallet are known they are mapped to the corners in a [20x108] pixels image.</p>
+</div>
+<div class="section" id="ranking-using-template-matching">
+<h2>Ranking using template matching<a class="headerlink" href="#ranking-using-template-matching" title="Permalink to this headline">¶</a></h2>
+<p>First a template has been loaded. To minimize the effect of always giving a high score to whiteness in the image the mean is first subtracted from the template image.</p>
+<p>Some improvements can be used to make it even more invariant to illuminance change.</p>
+<ul class="simple">
+<li>Normalize both images before template matching.</li>
+<li>Convert image to HSV colorspace and use the hue channel.</li>
+</ul>
+<p>This rectified image is now directly pixelwise multiplied with the preprocessed image. All the values in the remaining image (matrix) are summed up and this is the score for that tracker.</p>
+<p>The score is transformed to a score between 0 and 100 by using a sigmoid function: sigmoid = 100 / (1 + exp(-(score - a) + b)). a and b are tuning parameters.</p>
+<p>Linköping University has some good resources to read about template matching (starting from p.9): <a class="reference external" href="http://www.isy.liu.se/cvl/edu/TSBB08/lectures/DBgrkMatchedFilters.pdf">http://www.isy.liu.se/cvl/edu/TSBB08/lectures/DBgrkMatchedFilters.pdf</a></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The template matching used in this example is template matching without correlation, i.e. template matching without a sliding window since it is known that the template and rectified image should align up perfectly.</p>
+</div>
+</div>
+<div class="section" id="ranking-using-adaboost-instead">
+<h2>Ranking using AdaBoost instead<a class="headerlink" href="#ranking-using-adaboost-instead" title="Permalink to this headline">¶</a></h2>
+<p>The ranking can be much more robustly done using by adaBoost instead of using template matching. It is not integrated at the moment because when we tried to integrate it, unstable behaviour showed up and the system crashed non-deterministically.</p>
+<p>If the source for this behaviour is found, the AdaBoost classifier can be integrated very easily. To integrate it only three lines of code are neccesary.:</p>
+<div class="highlight-python"><div class="highlight"><pre>#include &quot;adaboost.h&quot;
+// #include &lt;minireach_vision/adaboost.h&gt; or if you install adaboost.h in install and add it to the CMakeList.txt
+</pre></div>
+</div>
+<p>Add loadClassifier where you want to load it, presumably in the constructor:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ada</span><span class="o">.</span><span class="n">loadClassifier</span><span class="p">(</span><span class="n">classifier_path</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Classify an image, not that it has to be a 3 channel image of size [108x20] pixels for the already trained classifiers:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ada</span><span class="o">.</span><span class="n">classify</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>A few classifier should be avaliable in the folder <em>minireach_vision/share/classifiers</em>.</p>
+<p>The flowchart still looks almost exactly the same as before.</p>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/adaboost_flow_chart.png"><img alt="_images/adaboost_flow_chart.png" src="_images/adaboost_flow_chart.png" style="width: 100%;" /></a>
+</div>
+</div>
+<div class="section" id="change-model-or-create-your-own-model">
+<h2>Change model or create your own model<a class="headerlink" href="#change-model-or-create-your-own-model" title="Permalink to this headline">¶</a></h2>
+<p>If you want to create your own model, you will have to create a new cao file. It is possible to create the model using a CAD application, but for simpler models it might be faster to just draw you model on a paper and enumerate all the corners. Specify each corner&#8217;s location in 3D space and specify the lines and/or faces of your object, by specifying the indices of the corners that define the line or face.</p>
+<p>A file might look like this:</p>
+<div class="highlight-python"><div class="highlight"><pre>V1
+# Number of points
+8
+# 3D points (x, y, z)
+-1.0 -1.0 -1.0,
+-1.0 -1.0  1.0,
+-1.0  1.0 -1.0,
+-1.0  1.0  1.0,
+ 1.0 -1.0 -1.0,
+ 1.0 -1.0  1.0,
+ 1.0  1.0 -1.0,
+ 1.0  1.0  1.0,
+# 3D lines
+0
+# Faces from 3D lines
+0
+# Faces from 3D points, first number is the number of points
+# The rest are the indices
+6
+4 0 4 6 2
+4 0 2 1 3
+4 0 1 5 4
+4 4 5 7 6
+4 2 6 7 3
+4 1 3 7 5
+# 3D cylinders
+0
+# 3D circles
+0
+</pre></div>
+</div>
+<p>Here you can read more about creating your own models: <a class="reference external" href="http://visp-doc.inria.fr/doxygen/visp-daily/tutorial-tracking-mb.html#mb_advanced_cao">http://visp-doc.inria.fr/doxygen/visp-daily/tutorial-tracking-mb.html#mb_advanced_cao</a></p>
+</div>
+<div class="section" id="known-problems-and-suggested-solutions">
+<h2>Known problems and suggested solutions<a class="headerlink" href="#known-problems-and-suggested-solutions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Fix bug so it is possible to pick up from left hand side from a rack. At the moment something crashes when you try to send a mission to pick up from rack position a or c.</li>
+</ul>
+</div>
+<div class="section" id="future-work">
+<h2>Future Work<a class="headerlink" href="#future-work" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Add pallet from GUI should be possible</li>
+<li>Change pallet position automatically after the truck has moved it in the real world.</li>
+<li>More robustness<ul>
+<li>Add AdaBoost classifier</li>
+<li>The tracker should automatically stop it the confidence of the track drops below a threshold.</li>
+<li>The parameters in track.xml should be fine tuned</li>
+</ul>
+</li>
+<li>Nice GUI for ordering page</li>
+<li>It should be possible to train the AdaBoost classifier in a simple way</li>
+</ul>
+</div>
+<div class="section" id="suggestion-for-extensions">
+<h2>Suggestion for extensions<a class="headerlink" href="#suggestion-for-extensions" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="troubleshooting.html" class="btn btn-neutral float-right" title="Troubleshooting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="perception.html" class="btn btn-neutral" title="Perception Resources" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Samuel Lindgren.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'latest',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

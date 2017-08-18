@@ -1,0 +1,443 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tutorial: Demo &mdash; minireach latest documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="minireach latest documentation" href="index.html"/>
+        <link rel="next" title="Tutorial: Multiple trucks" href="multi-agent_demo.html"/>
+        <link rel="prev" title="Tutorial: Gazebo Simulation" href="gazebo.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> minireach
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installing Truck Simulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="robot_hardware.html">Robot Hardware Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computer.html">Truck Computer Overview and Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="care_and_feeding.html">Care And Feeding</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="gazebo.html">Tutorial: Gazebo Simulation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Tutorial: Demo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#using-rocon-remocon">Using rocon_remocon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#moving-an-empty-pallet-no-ar-marker">Moving an empty pallet (no AR-marker)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-demo-on-real-trucks">Running demo on real trucks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="multi-agent_demo.html">Tutorial: Multiple trucks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="teleop.html">Tutorial: Robot Teleop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="perception.html">Perception Resources</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pallet_tracker.html">Component: Pallet tracker</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="known_issues.html">Known Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_overview.html">API Overview</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">minireach</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Tutorial: Demo</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/demo.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tutorial-demo">
+<h1>Tutorial: Demo<a class="headerlink" href="#tutorial-demo" title="Permalink to this headline">¶</a></h1>
+<p>The goal of this tutorial is to make the simulated truck move pallets between
+storage locations in diffrent racks.</p>
+<p>We first start the system in &#8220;monosim&#8221; mode by running the terminal command</p>
+<div class="highlight-python"><div class="highlight"><pre>roslaunch minireach_gazebo monosim.launch
+</pre></div>
+</div>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/start.png"><img alt="_images/start.png" src="_images/start.png" style="width: 100%;" /></a>
+</div>
+<p>If everything is correctly installed two new windows should now open, Gazebo
+client and rocon_remcon.</p>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/gazebo.png"><img alt="_images/gazebo.png" src="_images/gazebo.png" style="width: 100%;" /></a>
+</div>
+<div class="section" id="using-rocon-remocon">
+<h2>Using rocon_remocon<a class="headerlink" href="#using-rocon-remocon" title="Permalink to this headline">¶</a></h2>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/remocon_add.png"><img alt="_images/remocon_add.png" src="_images/remocon_add.png" style="width: 100%;" /></a>
+</div>
+<p><a class="reference external" href="http://wiki.ros.org/rocon_app_manager/Tutorials/indigo/Run%20Interactions%20with%20QT%20Remocon/">Qt remocon</a>
+is part of the <a class="reference external" href="http://wiki.ros.org/rocon/indigo/Guide">Robotics In Concert</a> framework, often refered to as <cite>rocon</cite>.
+This is a simple graphical interface that allows you to interact with compatible robots/trucks.</p>
+<p>If you have a clean install, the <cite>Ros Master List</cite> will be empty.
+To add a new <cite>Ros Master</cite> press the <cite>Add</cite> button.</p>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/remocon_add.png"><img alt="_images/remocon_add.png" src="_images/remocon_add.png" style="width: 100%;" /></a>
+</div>
+<p><cite>Ros Master List</cite> should now have an entry with your trucks name, default name is <cite>robot</cite>.
+Doubleclick this entry to continue.</p>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/remocon_added.png"><img alt="_images/remocon_added.png" src="_images/remocon_added.png" style="width: 100%;" /></a>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Sometimes a part of the interface system does not start property. You will then get the
+error message seen below. This should go away if you restart <cite>monosim</cite> but you may
+sometimes need to log out from your linux user and log back in again to make it
+work.</p>
+</div>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/interactions_fail.png"><img alt="_images/interactions_fail.png" src="_images/interactions_fail.png" style="width: 100%;" /></a>
+</div>
+<p>Doubleclick <cite>User</cite> to see available <a class="reference external" href="http://wiki.ros.org/rocon/indigo/Guide#rocon_app_platform.Rapps">Robot Apps</a>
+or <cite>rapps</cite>.</p>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/remocon_roll_user.png"><img alt="_images/remocon_roll_user.png" src="_images/remocon_roll_user.png" style="width: 100%;" /></a>
+</div>
+<p>In this demo we will use the <cite>Handle Pallet</cite> rapp, so dobleclick on that to start it.</p>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/remocon_handle_pallet.png"><img alt="_images/remocon_handle_pallet.png" src="_images/remocon_handle_pallet.png" style="width: 100%;" /></a>
+</div>
+<p>The rapp interface in the image below should pop up on your screen after a while.</p>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/remocon_app_pairing.png"><img alt="_images/remocon_app_pairing.png" src="_images/remocon_app_pairing.png" style="width: 100%;" /></a>
+</div>
+<p>We could start using the rapp to move pallets now, but to get a better idea about what is going on we sould start
+a vizualisation tool first. Click <cite>Back</cite> to return to the <cite>Role Chooser</cite>.</p>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/remocon_handle_pallet_back.png"><img alt="_images/remocon_handle_pallet_back.png" src="_images/remocon_handle_pallet_back.png" style="width: 100%;" /></a>
+</div>
+<p>This time Select <cite>Admin</cite> in staid of <cite>User</cite> in the interface.</p>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/remocon_roll_admin.png"><img alt="_images/remocon_roll_admin.png" src="_images/remocon_roll_admin.png" style="width: 100%;" /></a>
+</div>
+<p>This will give us access to &#8220;start buttons&#8221; for several vizualisation tools. The
+one will want to start now is called <a class="reference external" href="http://wiki.ros.org/rviz">rviz</a>
+This tool displays sensor data and what the truck &#8220;knows&#8221; about its environment.</p>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/rviz_demo.png"><img alt="_images/rviz_demo.png" src="_images/rviz_demo.png" style="width: 100%;" /></a>
+</div>
+<p>You can now move the truck by sending waypoints or a so called <cite>Navigation Goal</cite>
+by pressing the button in rviz the on the position in the map where you want the
+truck to go.</p>
+<p>See the tutorial on using RVIZ with navigation in the RVIZ
+<a class="reference external" href="http://wiki.ros.org/navigation/Tutorials/Using%20rviz%20with%20the%20Navigation%20Stack">documentation</a>.</p>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/rviz_move.png"><img alt="_images/rviz_move.png" src="_images/rviz_move.png" style="width: 100%;" /></a>
+</div>
+<p>In order to tell the truck to move pallets between racks we need to assign IDs
+to them. We can add a rack with an ID by:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Driving up to a rack.</li>
+<li>Pointing the forks towards the rack until a marker appears in the front center of it.</li>
+<li>Entering a number into the <cite>Rack ID</cite> field and clicking <cite>Update Rack Pose</cite>.</li>
+</ul>
+</div></blockquote>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/rviz_add_rack.png"><img alt="_images/rviz_add_rack.png" src="_images/rviz_add_rack.png" style="width: 100%;" /></a>
+</div>
+<p>Pallets with AR-tags (detected by the camera) are automaticly added (with IDs
+based on the ID of the tag) if they are close enough to a storage location
+in a rack.</p>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/rviz_rack_added.png"><img alt="_images/rviz_rack_added.png" src="_images/rviz_rack_added.png" style="width: 100%;" /></a>
+</div>
+<p>At this point we could start moving the already detected pallet to other storage
+locations in the same rack, but let&#8217;s add some more racks before we do anything else.</p>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/mission1.png"><img alt="_images/mission1.png" src="_images/mission1.png" style="width: 100%;" /></a>
+</div>
+<dl class="docutils">
+<dt>To start moving pallets do the following:</dt>
+<dd><ul class="first last simple">
+<li>Enter a <cite>Pallet ID</cite> in the interface.</li>
+<li>Enter a <cite>Storage ID</cite> in the interface.</li>
+<li>Click the <cite>Send Mission</cite> button.</li>
+</ul>
+</dd>
+</dl>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/mission3.png"><img alt="_images/mission3.png" src="_images/mission3.png" style="width: 100%;" /></a>
+</div>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/mission4.png"><img alt="_images/mission4.png" src="_images/mission4.png" style="width: 100%;" /></a>
+</div>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/mission9.png"><img alt="_images/mission9.png" src="_images/mission9.png" style="width: 100%;" /></a>
+</div>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/mission12.png"><img alt="_images/mission12.png" src="_images/mission12.png" style="width: 100%;" /></a>
+</div>
+</div>
+<div class="section" id="moving-an-empty-pallet-no-ar-marker">
+<h2>Moving an empty pallet (no AR-marker)<a class="headerlink" href="#moving-an-empty-pallet-no-ar-marker" title="Permalink to this headline">¶</a></h2>
+<p>If there are no empty pallets in the simulation environment, you need to add one.</p>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/gazebo_no_pallet.png"><img alt="_images/gazebo_no_pallet.png" src="_images/gazebo_no_pallet.png" style="width: 100%;" /></a>
+</div>
+<p>You can to this by selecting <cite>pall</cite> under the <cite>Insert</cite> tab and using the move
+tool to place it into the rack.</p>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/gazebo_pallet.png"><img alt="_images/gazebo_pallet.png" src="_images/gazebo_pallet.png" style="width: 100%;" /></a>
+</div>
+<p>You also need to give the pallet an ID and tell the truck where it is in order
+to be able to interact with it. At the time of writing this tutorial, there is
+no way to do this using a graphical interface. (This may have been added when you
+read this...)</p>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/rviz_add_empty_pallet.png"><img alt="_images/rviz_add_empty_pallet.png" src="_images/rviz_add_empty_pallet.png" style="width: 100%;" /></a>
+</div>
+<p>For now you can use the following terminal command to add an empty pallet with ID 9
+to storage location 1c.</p>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/terminal_add_pallet.png"><img alt="_images/terminal_add_pallet.png" src="_images/terminal_add_pallet.png" style="width: 100%;" /></a>
+</div>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/rviz_pallet_added.png"><img alt="_images/rviz_pallet_added.png" src="_images/rviz_pallet_added.png" style="width: 100%;" /></a>
+</div>
+<p>You can use the grapical interface to send a mission in the same way you did
+before. The truck will use the camera and <a class="reference external" href="https://visp.inria.fr/">VISP</a> to
+try to match a 3d model to a pallet in the specified storage location and start
+tracking it.</p>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/tracking_init.png"><img alt="_images/tracking_init.png" src="_images/tracking_init.png" style="width: 100%;" /></a>
+</div>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/tracking.png"><img alt="_images/tracking.png" src="_images/tracking.png" style="width: 100%;" /></a>
+</div>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/gazebo_pick_empty.png"><img alt="_images/gazebo_pick_empty.png" src="_images/gazebo_pick_empty.png" style="width: 100%;" /></a>
+</div>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/gazebo_drop_empty.png"><img alt="_images/gazebo_drop_empty.png" src="_images/gazebo_drop_empty.png" style="width: 100%;" /></a>
+</div>
+</div>
+<div class="section" id="running-demo-on-real-trucks">
+<h2>Running demo on real trucks<a class="headerlink" href="#running-demo-on-real-trucks" title="Permalink to this headline">¶</a></h2>
+<p>Running the demo on the real truck is pretty similar to running it in simulation with some extra steps.
+First turn on the main power switch and the industrial computer. You should be able to use
+<a class="reference external" href="https://www.nomachine.com/">NoMachine</a> to open a remote destkop on the truck computer and connect your
+computer to it.</p>
+<div class="highlight-python"><div class="highlight"><pre>User: toyota, Password: minireach
+</pre></div>
+</div>
+<p>If the remote desktop does not work, you may need to ssh into the truck and run:</p>
+<div class="highlight-python"><div class="highlight"><pre>sudo /etc/init.d/nxserver restart
+</pre></div>
+</div>
+<p>On the remote desktop, you sould be able to run the following in a terminal:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">rocon_remocon</span>
+</pre></div>
+</div>
+<p>At this point the interface (Qt remocon) should start and you can follow the same steps as in
+the simulation-tutorial above to start moving pallets.</p>
+<p>If something does not work right away, refer to the troubleshooting section <a class="reference internal" href="troubleshooting.html#id1"><em>Troubleshooting Simulated Truck</em></a></p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="multi-agent_demo.html" class="btn btn-neutral float-right" title="Tutorial: Multiple trucks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="gazebo.html" class="btn btn-neutral" title="Tutorial: Gazebo Simulation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Samuel Lindgren.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'latest',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

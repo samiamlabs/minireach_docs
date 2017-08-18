@@ -1,0 +1,287 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Electrical Overview &mdash; minireach latest documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="minireach latest documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> minireach
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installing Truck Simulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="robot_hardware.html">Robot Hardware Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computer.html">Truck Computer Overview and Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="care_and_feeding.html">Care And Feeding</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gazebo.html">Tutorial: Gazebo Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Tutorial: Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multi-agent_demo.html">Tutorial: Multiple trucks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="teleop.html">Tutorial: Robot Teleop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="perception.html">Perception Resources</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pallet_tracker.html">Component: Pallet tracker</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="known_issues.html">Known Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_overview.html">API Overview</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">minireach</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Electrical Overview</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/electrical.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="electrical-overview">
+<h1>Electrical Overview<a class="headerlink" href="#electrical-overview" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="communication-overview">
+<h2>Communication Overview<a class="headerlink" href="#communication-overview" title="Permalink to this headline">¶</a></h2>
+<p>Internally, MiniReach has a number of circuit boards,
+communication buses, and other components which
+handle power distribution and motion control. The system
+comprises among other things:</p>
+<blockquote>
+<div><ul class="simple">
+<li>The main robot computer (Nuvo-5095GC), running ROS, is responsible for perception
+and high level control of the robot.</li>
+<li>Ethernet interfaces used to communicate with the scanning laser range
+finders in the front and back of the robot and the wire encoder for the forks (height).</li>
+<li>An Orbbec Astra 3D camera connected by USB.</li>
+<li>A digital servo for tilting the camera connected to the computer by USB-serial port.</li>
+<li>An Arduino connected by USB the computer.
+It is hooked up to an encoder that outputs ticks from the drive wheel rotation,
+relay modules that allow control of fork and reach motors and a relay
+connected in series with the ICH &#8220;truck controller&#8221; power input.</li>
+</ul>
+</div></blockquote>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/communications.png"><img alt="_images/communications.png" src="_images/communications.png" style="width: 80%;" /></a>
+</div>
+</div>
+<div class="section" id="power-distribution">
+<span id="powerdistribution"></span><h2>Power Distribution<a class="headerlink" href="#power-distribution" title="Permalink to this headline">¶</a></h2>
+<p>The truck has a 25.9V lithium-ion battery in the base. (see
+<a class="reference internal" href="care_and_feeding.html#charging"><em>Charging</em></a>).</p>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/electrical.png"><img alt="_images/electrical.png" src="_images/electrical.png" style="width: 80%;" /></a>
+</div>
+</div>
+<div class="section" id="power-disconnect-switch">
+<span id="power-disconnect"></span><h2>Power Disconnect Switch<a class="headerlink" href="#power-disconnect-switch" title="Permalink to this headline">¶</a></h2>
+<p>The power disconnect is on the right side of the battery. This switch
+cuts the power between the battery and all systems on the robot.</p>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/power_switch_arrow.png"><img alt="_images/power_switch_arrow.png" src="_images/power_switch_arrow.png" style="width: 80%;" /></a>
+</div>
+</div>
+<div class="section" id="emergency-stop">
+<h2>Emergency Stop<a class="headerlink" href="#emergency-stop" title="Permalink to this headline">¶</a></h2>
+<p>The runstop is used to stop all operation of the base. When the runstop is pressed, the drivers will not be able to communicate with the motor or servo controller boards, and thus the wheel angle and other data will not update in RVIZ.</p>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/emergency_stop.jpg"><img alt="_images/emergency_stop.jpg" src="_images/emergency_stop.jpg" style="width: 80%;" /></a>
+</div>
+<span class="target" id="access-panel"></span></div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Samuel Lindgren.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'latest',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
