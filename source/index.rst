@@ -26,8 +26,18 @@ Tutorials
 
    gazebo
    demo
+   multi-agent_demo
    teleop
    perception
+
+Components
+----------
+
+.. toctree::
+   :maxdepth: 2
+
+   pallet_tracker
+
 
 Other
 -----
