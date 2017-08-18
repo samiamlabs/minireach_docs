@@ -1,0 +1,361 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tutorial: Robot Teleop &mdash; minireach latest documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="minireach latest documentation" href="index.html"/>
+        <link rel="next" title="Perception Resources" href="perception.html"/>
+        <link rel="prev" title="Tutorial: Multiple trucks" href="multi-agent_demo.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> minireach
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installing Truck Simulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="robot_hardware.html">Robot Hardware Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computer.html">Truck Computer Overview and Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="care_and_feeding.html">Care And Feeding</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="gazebo.html">Tutorial: Gazebo Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Tutorial: Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multi-agent_demo.html">Tutorial: Multiple trucks</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Tutorial: Robot Teleop</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#using-the-robot-joystick">Using the Robot Joystick</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#moving-the-base-with-your-keyboard">Moving the Base with your Keyboard</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="perception.html">Perception Resources</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pallet_tracker.html">Component: Pallet tracker</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="known_issues.html">Known Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_overview.html">API Overview</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">minireach</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Tutorial: Robot Teleop</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/teleop.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tutorial-robot-teleop">
+<h1>Tutorial: Robot Teleop<a class="headerlink" href="#tutorial-robot-teleop" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="using-the-robot-joystick">
+<h2>Using the Robot Joystick<a class="headerlink" href="#using-the-robot-joystick" title="Permalink to this headline">¶</a></h2>
+<p>Whenever the robot drivers are running, so is joystick teleop.
+The joystick is capable of controlling the movement of the robot
+base. (fork, reach and 3D camera control is currenty disabled because
+they are position controlled).</p>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/joystick_numbered.png"><img alt="_images/joystick_numbered.png" src="_images/joystick_numbered.png" style="width: 100%;" /></a>
+</div>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/joystick_numbered2.png"><img alt="_images/joystick_numbered2.png" src="_images/joystick_numbered2.png" style="width: 100%;" /></a>
+</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Button #</th>
+<th class="head">Function (details below)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0</td>
+<td>Not used</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>Control robot movement</td>
+</tr>
+<tr class="row-even"><td>2</td>
+<td>Control fork up/down (disabled)</td>
+</tr>
+<tr class="row-odd"><td>3</td>
+<td>Not used</td>
+</tr>
+<tr class="row-even"><td>4</td>
+<td>Not used</td>
+</tr>
+<tr class="row-odd"><td>5</td>
+<td>Not used</td>
+</tr>
+<tr class="row-even"><td>6</td>
+<td>Not used</td>
+</tr>
+<tr class="row-odd"><td>7</td>
+<td>Not used</td>
+</tr>
+<tr class="row-even"><td>8</td>
+<td>Control reach in (disabled)</td>
+</tr>
+<tr class="row-odd"><td>9</td>
+<td>Control reach out (disabled)</td>
+</tr>
+<tr class="row-even"><td>10</td>
+<td>Primary deadman</td>
+</tr>
+<tr class="row-odd"><td>11</td>
+<td>Disable safety (not implemented)</td>
+</tr>
+<tr class="row-even"><td>12</td>
+<td>Not used</td>
+</tr>
+<tr class="row-odd"><td>13</td>
+<td>Force log in to truck</td>
+</tr>
+<tr class="row-even"><td>14</td>
+<td>Not used</td>
+</tr>
+<tr class="row-odd"><td>15</td>
+<td>Not used</td>
+</tr>
+<tr class="row-even"><td>16</td>
+<td>Pair/unpair with robot</td>
+</tr>
+</tbody>
+</table>
+<p>To pair the controller with the robot, press the middle button (16) once
+the robot has powered on. The big LED on the controller will turn a solid
+blue when successful.
+To unpair, hold the button for 10 s. The blue LED indicator on the back will turn off.</p>
+<p>To drive the robot base, hold the primary deadman button (button 10
+above) and use the left joystick.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Whenever driving the robot, always lower the fork to avoid damaging objects and people</p>
+</div>
+</div>
+<div class="section" id="moving-the-base-with-your-keyboard">
+<h2>Moving the Base with your Keyboard<a class="headerlink" href="#moving-the-base-with-your-keyboard" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You will need a computer with ROS installed to properly
+communicate with the robot. Please consult the <a class="reference external" href="http://wiki.ros.org/indigo/Installation">ROS Wiki</a>
+for more information. We strongly suggest an Ubuntu machine
+with ROS Indigo installed.</p>
+</div>
+<p>To teleoperate the robot base in simulation, we recommend
+using the <tt class="docutils literal"><span class="pre">teleop_twist_keyboard.py</span></tt> script from
+<a class="reference external" href="http://wiki.ros.org/teleop_twist_keyboard">teleop_twist_keyboard</a>
+package.</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt;$ export ROS_MASTER_URI=http://&lt;robot_name_or_ip&gt;:11311
+&gt;$ export ROS_HOSTNAME=&lt;robot_name_or_ip&gt;:11311
+&gt;$ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="perception.html" class="btn btn-neutral float-right" title="Perception Resources" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="multi-agent_demo.html" class="btn btn-neutral" title="Tutorial: Multiple trucks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Samuel Lindgren.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'latest',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

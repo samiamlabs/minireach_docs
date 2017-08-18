@@ -1,0 +1,260 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Sensor Overview &mdash; minireach latest documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="minireach latest documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> minireach
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installing Truck Simulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="robot_hardware.html">Robot Hardware Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computer.html">Truck Computer Overview and Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="care_and_feeding.html">Care And Feeding</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gazebo.html">Tutorial: Gazebo Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Tutorial: Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multi-agent_demo.html">Tutorial: Multiple trucks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="teleop.html">Tutorial: Robot Teleop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="perception.html">Perception Resources</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pallet_tracker.html">Component: Pallet tracker</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="known_issues.html">Known Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_overview.html">API Overview</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">minireach</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Sensor Overview</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/sensors.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sensor-overview">
+<h1>Sensor Overview<a class="headerlink" href="#sensor-overview" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="laser-scanners">
+<h2>Laser Scanners<a class="headerlink" href="#laser-scanners" title="Permalink to this headline">¶</a></h2>
+<p>The truck has two Sick TiM 561 laser scanners. One mounted in front of the
+drive wheel and the other on a support leg by the forks. The
+lasers have a range of 10m, 270° field of view, 15Hz update rate
+and angular resolution of 0.33°. They publish distances
+to the <strong>scan1</strong> and <strong>scan2</strong> topics in ROS.</p>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/sick561.png"><img alt="_images/sick561.png" src="_images/sick561.png" style="width: 50%;" /></a>
+</div>
+</div>
+<div class="section" id="d-camera">
+<h2>3D Camera<a class="headerlink" href="#d-camera" title="Permalink to this headline">¶</a></h2>
+<p>The truck has an Orbbec Astra 3D camera in the fork direction. This
+depth camera works best in the 0.4-8m range. See <a class="reference internal" href="api_overview.html#camera-api"><em>3D Camera Interface</em></a>
+for details on the ROS API.</p>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/astra.png"><img alt="_images/astra.png" src="_images/astra.png" style="width: 100%;" /></a>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Samuel Lindgren.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'latest',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

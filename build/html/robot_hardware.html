@@ -1,0 +1,488 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Robot Hardware Overview &mdash; minireach latest documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="minireach latest documentation" href="index.html"/>
+        <link rel="next" title="Truck Computer Overview and Configuration" href="computer.html"/>
+        <link rel="prev" title="Installing Truck Simulator" href="installation.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> minireach
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installing Truck Simulator</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Robot Hardware Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#mechanism-terminology">Mechanism Terminology</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#link">Link</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#frame">Frame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#joint">Joint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coordinate-system">Coordinate System</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#naming-conventions">Naming Conventions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#mechanical-overview">Mechanical Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#environmental">Environmental</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#drive-surface">Drive Surface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#incline-surface">Incline Surface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#water">Water</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#forces-and-torques">Forces and Torques</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#electrical-overview">Electrical Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#communication-overview">Communication Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#power-distribution">Power Distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#power-disconnect-switch">Power Disconnect Switch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#emergency-stop">Emergency Stop</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#motion-control">Motion Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sensor-overview">Sensor Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#laser-scanners">Laser Scanners</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#d-camera">3D Camera</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="computer.html">Truck Computer Overview and Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="care_and_feeding.html">Care And Feeding</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gazebo.html">Tutorial: Gazebo Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Tutorial: Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multi-agent_demo.html">Tutorial: Multiple trucks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="teleop.html">Tutorial: Robot Teleop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="perception.html">Perception Resources</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pallet_tracker.html">Component: Pallet tracker</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="known_issues.html">Known Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_overview.html">API Overview</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">minireach</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Robot Hardware Overview</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/robot_hardware.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="robot-hardware-overview">
+<h1>Robot Hardware Overview<a class="headerlink" href="#robot-hardware-overview" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="mechanism-terminology">
+<h2>Mechanism Terminology<a class="headerlink" href="#mechanism-terminology" title="Permalink to this headline">¶</a></h2>
+<p>The MiniReach kinematics are defined by using the concepts of
+joints, links, and coordinate frames. The robot URDF (unified robot
+description format) model specifies the attributes (kinematic tree,
+names, ranges, etc.) of the joints, links, and frames of the truck. A
+link element in the URDF describes a rigid body with inertia, visual
+features, and coordinate frames. A joint element in the URDF defines
+the kinematics, dynamics, safety limits, and type (revolute,
+continuous fixed, prismatic, floating, or planar). Fixed joints are
+typically used to describe the relationship between two rigidly joined
+components in the truck.</p>
+<div class="section" id="link">
+<h3>Link<a class="headerlink" href="#link" title="Permalink to this headline">¶</a></h3>
+<p>The links are defined in the URDF description
+that are located in the minireach_description package.</p>
+</div>
+<div class="section" id="frame">
+<h3>Frame<a class="headerlink" href="#frame" title="Permalink to this headline">¶</a></h3>
+<p>Frames represent the coordinate frames of links, detected objects,
+sensors, or the location of another truck in the world. Frames are
+defined relative to other frames and the transformations between each
+frame is tracked using TF. See <a class="reference external" href="http://wiki.ros.org/tf">http://wiki.ros.org/tf</a> for more
+information.</p>
+</div>
+<div class="section" id="joint">
+<h3>Joint<a class="headerlink" href="#joint" title="Permalink to this headline">¶</a></h3>
+<p>A joint describes the relationship between links and are defined in the
+URDF description that can be found in the minireach_description
+package. The drive and steer joints are rotational, the fork
+and reach joint are prismatic, and there are several fixed joints describing
+the location of sensors on the truck.
+Rotational and translational joints are represented
+similarly in the URDF, and joint forces are described as <em>effort</em>
+instead of force or torque. Position, and velocity are both used to
+describe linear and angular motion of a joint.</p>
+</div>
+<div class="section" id="coordinate-system">
+<h3>Coordinate System<a class="headerlink" href="#coordinate-system" title="Permalink to this headline">¶</a></h3>
+<p>The coordinate frames for most links are defined
+with positive z-axis up, positive x-axis in drive wheel direction and
+positive y-axis to the truck-left when facing drive wheel direction.</p>
+</div>
+<div class="section" id="naming-conventions">
+<h3>Naming Conventions<a class="headerlink" href="#naming-conventions" title="Permalink to this headline">¶</a></h3>
+<p>In general, the names for a link, a joint, and frame will be similar
+(e.g. fork_link, fork_joint, and
+fork_frame). The diagrams below show
+the link and joint naming conventions as well as the positive
+direction of joint motion.</p>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/minireach_link_names.png"><img alt="_images/minireach_link_names.png" src="_images/minireach_link_names.png" style="width: 100%;" /></a>
+</div>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/minireach_joint_names.png"><img alt="_images/minireach_joint_names.png" src="_images/minireach_joint_names.png" style="width: 100%;" /></a>
+</div>
+</div>
+</div>
+<div class="section" id="mechanical-overview">
+<h2>Mechanical Overview<a class="headerlink" href="#mechanical-overview" title="Permalink to this headline">¶</a></h2>
+<p>Do not operate MiniReach before reviewing the mechanical
+information listed below.</p>
+<div class="section" id="environmental">
+<h3>Environmental<a class="headerlink" href="#environmental" title="Permalink to this headline">¶</a></h3>
+<p>The MiniReach trucks are indoor laboratory
+robots. Operating outside this type of environment could cause
+damage to the MiniReach trucks, and injury or death to
+operators.</p>
+<div class="section" id="drive-surface">
+<h4>Drive Surface<a class="headerlink" href="#drive-surface" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><ul class="simple">
+<li>The drive surface of the robot must be capable of supporting the
+entire weight of MiniReach, about 180 kgs plus the weight of the
+payload. If the surface is too soft, MiniReach can get stuck and fail to drive.
+A commercial carpet, tile or cement floor is recommended.</li>
+<li>MiniReach&#8217;s ground clearence is only 1.5cm, so make sure the surface is
+flat enough.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="incline-surface">
+<h4>Incline Surface<a class="headerlink" href="#incline-surface" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><ul class="simple">
+<li>MiniReach can be used with ramps, which are at no
+more than a [1/12?] slope. Ramps that are steeper than a [1/12?] slope
+are unsafe and may be a tipping hazard.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="water">
+<h4>Water<a class="headerlink" href="#water" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><ul class="simple">
+<li>MiniReach has not been tested for any type of contact with water
+or any other liquid. Under no circumstances should MiniReach
+come in contact with water from rain, mist, ground water (puddles)
+and any other liquid. Water contact can cause damage to the electrical
+circuitry and the mechanism.</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="forces-and-torques">
+<h3>Forces and Torques<a class="headerlink" href="#forces-and-torques" title="Permalink to this headline">¶</a></h3>
+<p>Joint position, velocity, and force limits are implemented in the
+URDF file as well as in firmware. These joint limits control
+the range of travel of the mechanism and the allowable velocity to prevent
+over-travel.</p>
+</div>
+</div>
+<div class="section" id="electrical-overview">
+<h2>Electrical Overview<a class="headerlink" href="#electrical-overview" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="communication-overview">
+<h3>Communication Overview<a class="headerlink" href="#communication-overview" title="Permalink to this headline">¶</a></h3>
+<p>Internally, MiniReach has a number of circuit boards,
+communication buses, and other components which
+handle power distribution and motion control. The system
+comprises among other things:</p>
+<blockquote>
+<div><ul class="simple">
+<li>The main robot computer (Nuvo-5095GC), running ROS, is responsible for perception
+and high level control of the robot.</li>
+<li>Ethernet interfaces used to communicate with the scanning laser range
+finders in the front and back of the robot and the wire encoder for the forks (height).</li>
+<li>An Orbbec Astra 3D camera connected by USB.</li>
+<li>A digital servo for tilting the camera connected to the computer by USB-serial port.</li>
+<li>An Arduino connected by USB the computer.
+It is hooked up to an encoder that outputs ticks from the drive wheel rotation,
+relay modules that allow control of fork and reach motors and a relay
+connected in series with the ICH &#8220;truck controller&#8221; power input.</li>
+</ul>
+</div></blockquote>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/communications.png"><img alt="_images/communications.png" src="_images/communications.png" style="width: 80%;" /></a>
+</div>
+</div>
+<div class="section" id="power-distribution">
+<span id="powerdistribution"></span><h3>Power Distribution<a class="headerlink" href="#power-distribution" title="Permalink to this headline">¶</a></h3>
+<p>The truck has a 25.9V lithium-ion battery in the base. (see
+<a class="reference internal" href="care_and_feeding.html#charging"><em>Charging</em></a>).</p>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/electrical.png"><img alt="_images/electrical.png" src="_images/electrical.png" style="width: 80%;" /></a>
+</div>
+</div>
+<div class="section" id="power-disconnect-switch">
+<span id="power-disconnect"></span><h3>Power Disconnect Switch<a class="headerlink" href="#power-disconnect-switch" title="Permalink to this headline">¶</a></h3>
+<p>The power disconnect is on the right side of the battery. This switch
+cuts the power between the battery and all systems on the robot.</p>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/power_switch_arrow.png"><img alt="_images/power_switch_arrow.png" src="_images/power_switch_arrow.png" style="width: 80%;" /></a>
+</div>
+</div>
+<div class="section" id="emergency-stop">
+<h3>Emergency Stop<a class="headerlink" href="#emergency-stop" title="Permalink to this headline">¶</a></h3>
+<p>The runstop is used to stop all operation of the base. When the runstop is pressed, the drivers will not be able to communicate with the motor or servo controller boards, and thus the wheel angle and other data will not update in RVIZ.</p>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/emergency_stop.jpg"><img alt="_images/emergency_stop.jpg" src="_images/emergency_stop.jpg" style="width: 80%;" /></a>
+</div>
+</div>
+</div>
+<div class="section" id="motion-control">
+<span id="access-panel"></span><h2>Motion Control<a class="headerlink" href="#motion-control" title="Permalink to this headline">¶</a></h2>
+<p>The drive motor and steer servo have dedicated motor controllers connected
+to the CAN bus. The real-time components of the controls run on these CAN nodes.
+The main computer streams commands to a third node on the CAN network refered to
+here as ICH with a frequency of 50Hz using a socketcan interface.
+The ICH board handles communication with the motor and servo controllers as well
+as low-level safety, fault protection and diagnostics.</p>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/motion_control.png"><img alt="_images/motion_control.png" src="_images/motion_control.png" style="width: 80%;" /></a>
+</div>
+<p>The servo has a position interface and the drive motor a velocity interface.</p>
+<p>The servo returns joint position information and motor velocity information.</p>
+<p>It should be noted that the velocity information sent by the drive motor is not of
+sufficient resolution and low enough noise level for odometry calucation,
+so a separate encoder (not on the CAN bus) is currently used for this.</p>
+<p>The motor contoller interface for the fork and reach joints are currently very primitive and
+can only be used to go up and down without speed control and no feedback.</p>
+</div>
+<div class="section" id="sensor-overview">
+<h2>Sensor Overview<a class="headerlink" href="#sensor-overview" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="laser-scanners">
+<h3>Laser Scanners<a class="headerlink" href="#laser-scanners" title="Permalink to this headline">¶</a></h3>
+<p>The truck has two Sick TiM 561 laser scanners. One mounted in front of the
+drive wheel and the other on a support leg by the forks. The
+lasers have a range of 10m, 270° field of view, 15Hz update rate
+and angular resolution of 0.33°. They publish distances
+to the <strong>scan1</strong> and <strong>scan2</strong> topics in ROS.</p>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/sick561.png"><img alt="_images/sick561.png" src="_images/sick561.png" style="width: 50%;" /></a>
+</div>
+</div>
+<div class="section" id="d-camera">
+<h3>3D Camera<a class="headerlink" href="#d-camera" title="Permalink to this headline">¶</a></h3>
+<p>The truck has an Orbbec Astra 3D camera in the fork direction. This
+depth camera works best in the 0.4-8m range. See <a class="reference internal" href="api_overview.html#camera-api"><em>3D Camera Interface</em></a>
+for details on the ROS API.</p>
+<div class="align-centered figure align-center">
+<a class="reference internal image-reference" href="_images/astra.png"><img alt="_images/astra.png" src="_images/astra.png" style="width: 100%;" /></a>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="computer.html" class="btn btn-neutral float-right" title="Truck Computer Overview and Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="installation.html" class="btn btn-neutral" title="Installing Truck Simulator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Samuel Lindgren.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'latest',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

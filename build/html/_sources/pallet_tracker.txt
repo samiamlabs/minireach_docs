@@ -190,15 +190,14 @@ Future Work
 ------------------------
 * Add pallet from GUI should be possible
 * Change pallet position automatically after the truck has moved it in the real world.
-* Adding/enable more features on the PS-controll, such as reach the forks up/down and in/out.
 * More robustness
 
-  * Add AdaBoost classifier.
+  * Add AdaBoost classifier
   * The tracker should automatically stop it the confidence of the track drops below a threshold.
-  * The parameters in track.xml should be fine tuned.
+  * The parameters in track.xml should be fine tuned
 
-* Nice GUI for ordering page.
-* It should be possible to train the AdaBoost classifier in a simple way.
+* Nice GUI for ordering page
+* It should be possible to train the AdaBoost classifier in a simple way
   
 Suggestion for extensions
 ------------------------
