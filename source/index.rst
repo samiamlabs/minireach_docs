@@ -38,7 +38,6 @@ Components
 
    pallet_tracker
 
-
 Other
 -----
 
@@ -46,6 +45,7 @@ Other
    :maxdepth: 2
   
    troubleshooting
+   known_issues
    api_overview
 
 Indices and tables
