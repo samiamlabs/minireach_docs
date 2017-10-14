@@ -18,6 +18,13 @@ MiniReach Manual
    computer
    care_and_feeding
 
+Demos
+-----
+.. toctree::
+   :maxdepth: 2
+
+   demo_teleop
+    
 Tutorials
 ---------
 
