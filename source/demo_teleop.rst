@@ -46,7 +46,9 @@ Login to the truck
        #. Open a new terminal on your computer
        #. Type ``ssh toyota@minireachX``, where X is the truck you want to use.
 
-    #. Type ``init.d nomachine restart``
+    #. Type ``sudo /etc/init.d/nxserver restart``
+
+       #. It will ask for the password which is ``minireach``
 
 
 Restart bringup
