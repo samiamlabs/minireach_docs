@@ -1,14 +1,14 @@
 Tutorial: Multiple trucks
 ======================
 
-The goal of this tutorial twofold:
-  * To esablish a connection between multiple real trucks where information can be exchanged.
+The goal of this tutorial is twofold:
+  * To establish a connection between multiple real trucks where information can be exchanged.
   * Describe how to use the multi-truck simulator
-  * TODO
+
 This example uses a computer as a central hub which two trucks connects to.
 
 First power-up the two trucks and their industrial computers along with the computer which will act as a central hub.
-You can use `NoMachine <https://www.nomachine.com/>`_ to connect to the trucks as described in TODO: ADD LINK TO SAMUELS DEMO
+You can use `NoMachine <https://www.nomachine.com/>`_ to connect to the trucks as described in :ref:`Running demo on real trucks`.
 
 Using rocon_gateway
 ----------------------
@@ -42,7 +42,7 @@ This app is divided into two parts.
 Random Walk Mapping creates a map of its environment where it can drive around.
 Random Walk AMCL (Automatic Monte Carlo Localization) receives the map from Random Walk Mapping and tries to position itself in it.
 
-The apps are started with rocon_remocon described in TODO: ADD LINK TO SAMUELS DEMO and is done after the rocon_gateway connection has been established.
+The apps are started with rocon_remocon described in :ref:`Using rocon_remocon` and is done after the rocon_gateway connection has been established.
 After the apps are launched each truck will have its own rviz window representing how it views its surrounding.
 A good idea to do next could be to drive around with the mapping truck to get a map of the surrounding environment.
 The truck with AMLC running will have to get an initial estimate of its position.

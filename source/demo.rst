@@ -252,7 +252,11 @@ computer to it. ::
 
   User: toyota, Password: minireach
 
-If the remote desktop does not work, you may need to ssh into the truck and run::
+If the remote desktop does not work, you may need to ssh into the truck::
+
+  ssh toyota@minireachX
+
+Use the same password as above, and X is the number of truck depending on which truck you want to connect to. Then you can restart the server by writing following command in the terminal::
 
   sudo /etc/init.d/nxserver restart
 
