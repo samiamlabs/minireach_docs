@@ -5,5 +5,6 @@ The drive wheel on the real forklift has a small axial offset from the steer ser
 
 ::
 
-> <property name="drive_wheel_offset"	value="-0.0037" />
->
+<property name="drive_wheel_offset"	value="-0.0037" />
+
+::
