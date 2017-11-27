@@ -1,3 +1,5 @@
+.. _demo_teleop:
+
 Demo: Control the truck using a game-pad
 ========================================
 
@@ -9,6 +11,10 @@ Demo: Control the truck using a game-pad
     * A gamepad with it's dongle connected to the usb port on the truck
 
       * At the moment only the xbox gamepad is working
+
+    * A router that has been setup in such a way that the trucks and laptops can connect automatically when powered up
+      
+      * This must be done before leaving Toyota premises
 
 Start the truck
 ---------------
@@ -27,15 +33,15 @@ Since all the drivers are launched automatically, you should now be able to cont
 Troubleshooting
 ---------------
 
-If the truck does not react to the game controller, you might have to turn the driving wheel, i.e. change it's direction by hand. This is due to a bug from the manufacturer of the steering servo.
+If the truck does not respond to the controller, you might have to relaunch the drivers. Do this by following the steps below.
 
-If the truck still does not respond to the controller, you might have to relaunch the drivers. Do this by following the steps below.
+If the truck still does not react to the game controller, you might have to tilt the truck and to turn the driving wheel (the big wheel under the truck) sideways, i.e. change it's direction by hand. Then the drivers should communicate correctly. This is due to a bug from the manufacturer of the steering servo.
 
-Login to the truck
+
+1). Login to the truck
 ^^^^^^^^^^^^^^^^^^
 
- #. Make sure that the truck and the computer is connected to the same WiFi router.
- #. Launch NoMachine, on the Ubuntu computer it should be available in the upper right corner on the screen.
+ #. Launch NoMachine, on the Ubuntu laptop it should be available in the upper right corner on the screen.
  #. Choose the truck you want to login to.
  
 .. Note::
@@ -43,17 +49,17 @@ Login to the truck
 
     #. ssh in on the truck
  
-       #. Open a new terminal on your computer
-       #. Type ``ssh toyota@minireachX``, where X is the truck you want to use.
+       #. Open a new terminal on your laptop
+       #. Type ``ssh toyota@minireach<truck_nr>``, where truck_nr = [1 or 2] is the truck you want to use.
 
     #. Type ``sudo /etc/init.d/nxserver restart``
 
        #. It will ask for the password which is ``minireach``
 
 
-Restart bringup
+2). Restart bringup
 ^^^^^^^^^^^^^^^
-
+ 
  #. Open a terminal inside the remote desktop
  #. Stop the drivers ``sudo service minireach stop``
  #. Restart the drivers ``roslaunch minireach_bringup bringup.launch``
