@@ -1,3 +1,5 @@
+.. _demo_teleop:
+
 Demo: Control the truck using a game-pad
 ========================================
 

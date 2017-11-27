@@ -11,9 +11,9 @@ ____________
 
 If you just want to start a demo, self contained instructions for some demo scenarios are provided.
 
-Tutorials running on real truck
+Demos running on real truck
 
-* Start truck and control it using game pads.
+* :ref:`demo_teleop`
 
 .. * Start pallet handling with AR-markers.
 
