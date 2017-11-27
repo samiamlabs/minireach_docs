@@ -20,6 +20,7 @@ MiniReach Manual
 
 Demos
 -----
+
 .. toctree::
    :maxdepth: 2
 
