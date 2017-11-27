@@ -1,4 +1,4 @@
-Tutorial: State space model 
+Component: State space model 
 ======================
 
 Overview
