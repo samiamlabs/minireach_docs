@@ -39,7 +39,7 @@ If the truck still does not react to the game controller, you might have to tilt
 
 
 1). Login to the truck
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
  #. Launch NoMachine, on the Ubuntu laptop it should be available in the upper right corner on the screen.
  #. Choose the truck you want to login to.
@@ -58,7 +58,7 @@ If the truck still does not react to the game controller, you might have to tilt
 
 
 2). Restart bringup
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^
  
  #. Open a terminal inside the remote desktop
  #. Stop the drivers ``sudo service minireach stop``

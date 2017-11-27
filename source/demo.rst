@@ -62,7 +62,7 @@ Doubleclick this entry to continue.
    :align: center
    :figclass: align-centered
 
-Doubleclick `User` to see available `Robot Apps <http://wiki.ros.org/rocon/indigo/Guide#rocon_app_platform.Rapps>`_
+Dubbleclick `User` to see available `Robot Apps <http://wiki.ros.org/rocon/indigo/Guide#rocon_app_platform.Rapps>`_
 or `rapps`.
 
 .. figure:: _static/remocon_roll_user.png
@@ -70,7 +70,7 @@ or `rapps`.
    :align: center
    :figclass: align-centered
 
-In this demo we will use the `Handle Pallet` rapp, so dobleclick on that to start it.
+In this demo we will use the `Handle Pallet` rapp, so dubbleclick on that to start it.
 
 .. figure:: _static/remocon_handle_pallet.png
    :width: 100%
