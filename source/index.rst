@@ -44,6 +44,7 @@ Components
    :maxdepth: 2
 
    pallet_tracker
+   state_space
 
 Other
 -----
