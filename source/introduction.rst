@@ -15,10 +15,10 @@ Demos running on real truck
 
 * :ref:`demo_teleop`
 
-.. * Start pallet handling with AR-markers.
+* :ref:`demo_ar`
 
-.. * Start pallet handling with empty pallets.
-
+* :ref:`demo_no_ar`
+  
 .. * Start random walk.
 
 .. * Start multiple agents.

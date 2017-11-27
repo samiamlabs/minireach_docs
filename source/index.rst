@@ -25,6 +25,8 @@ Demos
    :maxdepth: 2
 
    demo_teleop
+   demo_ar
+   demo_no_ar
     
 Tutorials
 ---------
