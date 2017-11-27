@@ -8,3 +8,5 @@ The drive wheel on the real forklift has a small axial offset from the steer ser
 <property name="drive_wheel_offset"	value="-0.0037" />
 
 ::
+
+The value of the offset was determined from drawings and CAD files of the original wheel to be -3.7 mm with the minus sign indicating the direction of the offset. 
