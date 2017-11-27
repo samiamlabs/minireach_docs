@@ -31,9 +31,10 @@ Since all the drivers are launched automatically, you should now be able to cont
 Troubleshooting
 ---------------
 
-If the truck does not react to the game controller, you might have to turn the driving wheel (the big wheel under the truck) sideways, i.e. change it's direction by hand. This is due to a bug from the manufacturer of the steering servo.
+If the truck does not respond to the controller, you might have to relaunch the drivers. Do this by following the steps below.
 
-If the truck still does not respond to the controller, you might have to relaunch the drivers. Do this by following the steps below.
+If the truck still does not react to the game controller, you might have to tilt the truck and to turn the driving wheel (the big wheel under the truck) sideways, i.e. change it's direction by hand. Then the drivers should communicate correctly. This is due to a bug from the manufacturer of the steering servo.
+
 
 1). Login to the truck
 ^^^^^^^^^^^^^^^^^^
@@ -46,7 +47,7 @@ If the truck still does not respond to the controller, you might have to relaunc
 
     #. ssh in on the truck
  
-       #. Open a new terminal on your computer
+       #. Open a new terminal on your laptop
        #. Type ``ssh toyota@minireach<truck_nr>``, where truck_nr = [1 or 2] is the truck you want to use.
 
     #. Type ``sudo /etc/init.d/nxserver restart``
