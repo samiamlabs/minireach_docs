@@ -31,7 +31,7 @@ Since all the drivers are launched automatically, you should now be able to cont
 Troubleshooting
 ---------------
 
-If the truck does not react to the game controller, you might have to turn the driving wheel, i.e. change it's direction by hand. This is due to a bug from the manufacturer of the steering servo.
+If the truck does not react to the game controller, you might have to turn the driving wheel (the big wheel under the truck) sideways, i.e. change it's direction by hand. This is due to a bug from the manufacturer of the steering servo.
 
 If the truck still does not respond to the controller, you might have to relaunch the drivers. Do this by following the steps below.
 
