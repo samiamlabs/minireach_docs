@@ -142,7 +142,7 @@ Further implementations
 ------------------------
 In the reglering2017ff repo a feedforward controller of the angular velocity has been implemented it is currently not finished and will thus need some time to work.
 In order for the truck to manage to take really sharp curves the earlier implementation requires an aggressive controller.
-However a too aggressive controller produces a oscillative behaviour in the truck, clearly seen after the implementation of the offset dynamic in control wheel. This is undesired even if the truck fulfills the precision demands.
+However a too aggressive controller produces a oscillative behaviour in the truck, clearly seen after the implementation of the offset dynamic in control wheel and put extra stress on stearing actuators. This is undesired even if the truck fulfills the precision demands.
 A feedforward makes it possible to decrease the dependency of the feedback and is possible since we know the curve we want to follow.
 Thus a reasonable alternative to an aggressive controller is a feedforward. The feedforward can be implemented in many ways.
 In reglering2017ff it was used the fact that the curve is known thus calculating the second derivative of the curve and from this determine with respect to the time offset what the angular velocity should be.
@@ -158,4 +158,4 @@ This gives hope to achieving a controller that works more like the robust one se
 
 The feedforward in reglering2017ff needs to be finished in order to evaluate the results, but in theory the feedforward seems like a very viable solution.
 In the feedforward one could also integrate the model for how the truck will move. One such dynamic state space model was made during the 2017 cdio project.
-If this is not enough one could also turn this in to a optimization problem by implementing the developed dynamic model in a mpc and from this achieve the optimal angular velocity, thus maybe even replacing the need for the pid.
+If this is not enough one could also turn this in to a optimization problem by implementing the developed dynamic model in a model predictive controller and from this achieve the optimal angular velocity, thus replacing the pid. But we highly recommend finishing the feedforvard implementation first for simplicity's sake 
