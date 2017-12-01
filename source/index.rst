@@ -24,7 +24,7 @@ Demos
    :maxdepth: 2
 
    demo_teleop
-    
+
 Tutorials
 ---------
 
@@ -45,14 +45,15 @@ Components
 
    pallet_tracker
    state_space
+   robot_description
+   precision_control
 
 Other
 -----
 
 .. toctree::
    :maxdepth: 2
-  
-   drive_wheel_offset
+
    troubleshooting
    known_issues
    api_overview

@@ -18,6 +18,13 @@ MiniReach Manual
    computer
    care_and_feeding
 
+Demos
+-----
+.. toctree::
+   :maxdepth: 2
+
+   demo_teleop
+
 Tutorials
 ---------
 
@@ -37,13 +44,16 @@ Components
    :maxdepth: 2
 
    pallet_tracker
+   state_space
+   robot_description
+   precision_control
 
 Other
 -----
 
 .. toctree::
    :maxdepth: 2
-  
+
    troubleshooting
    known_issues
    api_overview

@@ -32,6 +32,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="minireach latest documentation" href="index.html"/>
         <link rel="next" title="Truck Computer Overview and Configuration" href="computer.html"/>
         <link rel="prev" title="Installing Truck Simulator" href="installation.html"/> 
@@ -90,7 +93,7 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installing Truck Simulator</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Robot Hardware Overview</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Robot Hardware Overview</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#mechanism-terminology">Mechanism Terminology</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#link">Link</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#frame">Frame</a></li>
@@ -114,6 +117,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#power-distribution">Power Distribution</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#power-disconnect-switch">Power Disconnect Switch</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#emergency-stop">Emergency Stop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#arduino">Arduino</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#motion-control">Motion Control</a></li>
@@ -128,6 +132,9 @@
 <li class="toctree-l1"><a class="reference internal" href="care_and_feeding.html">Care And Feeding</a></li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="demo_teleop.html">Demo: Control the truck using a game-pad</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="gazebo.html">Tutorial: Gazebo Simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="demo.html">Tutorial: Demo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multi-agent_demo.html">Tutorial: Multiple trucks</a></li>
@@ -136,6 +143,9 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="pallet_tracker.html">Component: Pallet tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="state_space.html">Component: State space model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="robot_description.html">Component: Robot Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="precision_control.html">Component: Precision control</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
@@ -191,7 +201,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/robot_hardware.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/robot_hardware.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -282,7 +292,7 @@ operators.</p>
 entire weight of MiniReach, about 180 kgs plus the weight of the
 payload. If the surface is too soft, MiniReach can get stuck and fail to drive.
 A commercial carpet, tile or cement floor is recommended.</li>
-<li>MiniReach&#8217;s ground clearence is only 1.5cm, so make sure the surface is
+<li>MiniReach’s ground clearence is only 1.5cm, so make sure the surface is
 flat enough.</li>
 </ul>
 </div></blockquote>
@@ -337,7 +347,7 @@ finders in the front and back of the robot and the wire encoder for the forks (h
 <li>An Arduino connected by USB the computer.
 It is hooked up to an encoder that outputs ticks from the drive wheel rotation,
 relay modules that allow control of fork and reach motors and a relay
-connected in series with the ICH &#8220;truck controller&#8221; power input.</li>
+connected in series with the ICH “truck controller” power input.</li>
 </ul>
 </div></blockquote>
 <div class="align-centered figure align-center">
@@ -347,7 +357,7 @@ connected in series with the ICH &#8220;truck controller&#8221; power input.</li
 <div class="section" id="power-distribution">
 <span id="powerdistribution"></span><h3>Power Distribution<a class="headerlink" href="#power-distribution" title="Permalink to this headline">¶</a></h3>
 <p>The truck has a 25.9V lithium-ion battery in the base. (see
-<a class="reference internal" href="care_and_feeding.html#charging"><em>Charging</em></a>).</p>
+<a class="reference internal" href="care_and_feeding.html#charging"><span class="std std-ref">Charging</span></a>).</p>
 <div class="align-centered figure align-center">
 <a class="reference internal image-reference" href="_images/electrical.png"><img alt="_images/electrical.png" src="_images/electrical.png" style="width: 80%;" /></a>
 </div>
@@ -367,9 +377,38 @@ cuts the power between the battery and all systems on the robot.</p>
 <a class="reference internal image-reference" href="_images/emergency_stop.jpg"><img alt="_images/emergency_stop.jpg" src="_images/emergency_stop.jpg" style="width: 80%;" /></a>
 </div>
 </div>
+<div class="section" id="arduino">
+<span id="access-panel"></span><h3>Arduino<a class="headerlink" href="#arduino" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div>TODO</div></blockquote>
+<p>Arduino:</p>
+<p>RX0:
+TX1:
+D2: Vit                 INTERRUPT_WHEEL_ENCODER
+D3: Ljusblå     INTERRUPT_WHEEL_ENCODER
+D4:
+D5:
+D6:
+D7:
+D8:
+D9:
+D10: Lila       LIFT_UP_DOWN
+D11: Blå        REACH_IN_OUT
+D12: Gul        LIFT_ON_OFF
+D13: Grön       REACH_ON_OFF
+D14: Lila       TCS
+D15: Blå        Okänd, Till Relä
+D16: Gul        Oanvänd
+D17: Grön       Oanvänd</p>
+<p>Reachkortet (?):
+IN1 Grön  - Från D13
+IN2 Gul   - Från D12
+IN3 Blå   - Från D11
+IN4 Lila  - Från D10</p>
+</div>
 </div>
 <div class="section" id="motion-control">
-<span id="access-panel"></span><h2>Motion Control<a class="headerlink" href="#motion-control" title="Permalink to this headline">¶</a></h2>
+<h2>Motion Control<a class="headerlink" href="#motion-control" title="Permalink to this headline">¶</a></h2>
 <p>The drive motor and steer servo have dedicated motor controllers connected
 to the CAN bus. The real-time components of the controls run on these CAN nodes.
 The main computer streams commands to a third node on the CAN network refered to
@@ -403,7 +442,7 @@ to the <strong>scan1</strong> and <strong>scan2</strong> topics in ROS.</p>
 <div class="section" id="d-camera">
 <h3>3D Camera<a class="headerlink" href="#d-camera" title="Permalink to this headline">¶</a></h3>
 <p>The truck has an Orbbec Astra 3D camera in the fork direction. This
-depth camera works best in the 0.4-8m range. See <a class="reference internal" href="api_overview.html#camera-api"><em>3D Camera Interface</em></a>
+depth camera works best in the 0.4-8m range. See <a class="reference internal" href="api_overview.html#camera-api"><span class="std std-ref">3D Camera Interface</span></a>
 for details on the ROS API.</p>
 <div class="align-centered figure align-center">
 <a class="reference internal image-reference" href="_images/astra.png"><img alt="_images/astra.png" src="_images/astra.png" style="width: 100%;" /></a>
@@ -460,13 +499,13 @@ for details on the ROS API.</p>
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: ''
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

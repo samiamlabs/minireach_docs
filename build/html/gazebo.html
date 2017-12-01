@@ -32,9 +32,12 @@
   
 
   
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="minireach latest documentation" href="index.html"/>
         <link rel="next" title="Tutorial: Demo" href="demo.html"/>
-        <link rel="prev" title="Care And Feeding" href="care_and_feeding.html"/> 
+        <link rel="prev" title="Demo: Control the truck using a game-pad" href="demo_teleop.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -94,8 +97,11 @@
 <li class="toctree-l1"><a class="reference internal" href="computer.html">Truck Computer Overview and Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="care_and_feeding.html">Care And Feeding</a></li>
 </ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="demo_teleop.html">Demo: Control the truck using a game-pad</a></li>
+</ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="">Tutorial: Gazebo Simulation</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial: Gazebo Simulation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#starting-the-simulator">Starting the Simulator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#simulation-vs-real-robots">Simulation vs. Real Robots</a></li>
 </ul>
@@ -107,6 +113,9 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="pallet_tracker.html">Component: Pallet tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="state_space.html">Component: State space model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="robot_description.html">Component: Robot Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="precision_control.html">Component: Precision control</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
@@ -162,7 +171,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/gazebo.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/gazebo.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -181,17 +190,17 @@
 <a class="reference external" href="http://gazebosim.org">Gazebo Simulator</a>.</p>
 <div class="section" id="starting-the-simulator">
 <h2>Starting the Simulator<a class="headerlink" href="#starting-the-simulator" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="docutils literal"><span class="pre">minireach_simulator</span></tt> &#8220;stack&#8221; (a stack is a collection of ROS packages) provide the Gazebo
-environment for the truck. The <tt class="docutils literal"><span class="pre">minireach_gazebo</span></tt> packages the following launch files:</p>
+<p>The <code class="docutils literal"><span class="pre">minireach_simulator</span></code> “stack” (a stack is a collection of ROS packages) provide the Gazebo
+environment for the truck. The <code class="docutils literal"><span class="pre">minireach_gazebo</span></code> packages the following launch files:</p>
 <blockquote>
 <div><ul class="simple">
 <li><cite>monosim.launch</cite>:  spawns a truck in a miniature warehouse with bootstrap software</li>
-<li><cite>multisim.launch</cite>: spawns multiple trucks in a miniature warehouse, each with bootstrap software running in a separate &#8220;ros master&#8221; for each truck</li>
+<li><cite>multisim.launch</cite>: spawns multiple trucks in a miniature warehouse, each with bootstrap software running in a separate “ros master” for each truck</li>
 <li><cite>simulation.launch</cite>: spawns a truck in a miniature warehose without bootstrap software</li>
 </ul>
 </div></blockquote>
 <p>To start one simulated truck, use the following terminal command:</p>
-<div class="highlight-python"><div class="highlight"><pre>roslaunch minireach_gazebo monosim.launch
+<div class="highlight-default"><div class="highlight"><pre><span class="n">roslaunch</span> <span class="n">minireach_gazebo</span> <span class="n">monosim</span><span class="o">.</span><span class="n">launch</span>
 </pre></div>
 </div>
 <div class="align-centered figure align-center">
@@ -203,8 +212,8 @@ in the image below on your screen:</p>
 <a class="reference internal image-reference" href="_images/gazebo.png"><img alt="_images/gazebo.png" src="_images/gazebo.png" style="width: 100%;" /></a>
 </div>
 <p>To start multiple simulated trucks, use this terminal command:</p>
-<div class="highlight-python"><div class="highlight"><pre>roslaunch minireach_gazebo multisim.launch
-gzclient
+<div class="highlight-default"><div class="highlight"><pre><span class="n">roslaunch</span> <span class="n">minireach_gazebo</span> <span class="n">multisim</span><span class="o">.</span><span class="n">launch</span>
+<span class="n">gzclient</span>
 </pre></div>
 </div>
 </div>
@@ -227,7 +236,7 @@ gzclient
         <a href="demo.html" class="btn btn-neutral float-right" title="Tutorial: Demo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="care_and_feeding.html" class="btn btn-neutral" title="Care And Feeding" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="demo_teleop.html" class="btn btn-neutral" title="Demo: Control the truck using a game-pad" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -262,13 +271,13 @@ gzclient
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: ''
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

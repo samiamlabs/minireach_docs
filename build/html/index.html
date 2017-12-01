@@ -32,6 +32,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="minireach latest documentation" href="#"/>
         <link rel="next" title="Introduction" href="introduction.html"/> 
 
@@ -94,6 +97,9 @@
 <li class="toctree-l1"><a class="reference internal" href="care_and_feeding.html">Care And Feeding</a></li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="demo_teleop.html">Demo: Control the truck using a game-pad</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="gazebo.html">Tutorial: Gazebo Simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="demo.html">Tutorial: Demo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multi-agent_demo.html">Tutorial: Multiple trucks</a></li>
@@ -102,6 +108,9 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="pallet_tracker.html">Component: Pallet tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="state_space.html">Component: State space model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="robot_description.html">Component: Robot Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="precision_control.html">Component: Precision control</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
@@ -151,13 +160,13 @@
     
       <li><a href="#">Docs</a> &raquo;</li>
         
-      <li>Welcome to minireach&#8217;s documentation!</li>
+      <li>Welcome to minireach’s documentation!</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/index.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -171,12 +180,15 @@
            <div itemprop="articleBody">
             
   <div class="section" id="welcome-to-minireach-s-documentation">
-<h1>Welcome to minireach&#8217;s documentation!<a class="headerlink" href="#welcome-to-minireach-s-documentation" title="Permalink to this headline">¶</a></h1>
+<h1>Welcome to minireach’s documentation!<a class="headerlink" href="#welcome-to-minireach-s-documentation" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="minireach-manual">
 <h2>MiniReach Manual<a class="headerlink" href="#minireach-manual" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#start-a-demo">Start a demo</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installing Truck Simulator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="robot_hardware.html">Robot Hardware Overview</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="robot_hardware.html#mechanism-terminology">Mechanism Terminology</a></li>
@@ -201,6 +213,18 @@
 </ul>
 </div>
 </div>
+<div class="section" id="demos">
+<h2>Demos<a class="headerlink" href="#demos" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="demo_teleop.html">Demo: Control the truck using a game-pad</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="demo_teleop.html#start-the-truck">Start the truck</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demo_teleop.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
 <div class="section" id="tutorials">
 <h2>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
@@ -218,7 +242,9 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="multi-agent_demo.html">Tutorial: Multiple trucks</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="multi-agent_demo.html#using-rocon-gateway">Using rocon_gateway</a></li>
-<li class="toctree-l2"><a class="reference internal" href="multi-agent_demo.html#todo-insert-title">TODO: Insert title</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-agent_demo.html#application-random-walk">Application: Random Walk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-agent_demo.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-agent_demo.html#multi-truck-simulator">Multi-truck Simulator</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="teleop.html">Tutorial: Robot Teleop</a><ul>
@@ -251,6 +277,35 @@
 <li class="toctree-l2"><a class="reference internal" href="pallet_tracker.html#suggestion-for-extensions">Suggestion for extensions</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="state_space.html">Component: State space model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="state_space.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="state_space.html#files-neccesary-to-generate-the-model">Files neccesary to generate the model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="state_space.html#black-box-model-outline">Black box model outline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="state_space.html#recording-data-with-rosbag">Recording data with rosbag</a></li>
+<li class="toctree-l2"><a class="reference internal" href="state_space.html#suggestions-for-extensions">Suggestions for extensions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="robot_description.html">Component: Robot Description</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="robot_description.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="robot_description.html#drive-wheel-offset">Drive Wheel Offset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="robot_description.html#control-of-modeled-actuators">Control of Modeled Actuators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="robot_description.html#future-work">Future work</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="precision_control.html">Component: Precision control</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="precision_control.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="precision_control.html#problem-description">Problem description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="precision_control.html#file-location">File location</a></li>
+<li class="toctree-l2"><a class="reference internal" href="precision_control.html#github-branches">Github branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="precision_control.html#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="precision_control.html#route-planning">Route planning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="precision_control.html#angular-controller">Angular controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="precision_control.html#linear-velocity-controller">Linear velocity controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="precision_control.html#planning-changes">Planning changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="precision_control.html#further-implementations">Further implementations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="precision_control.html#future-work">Future work</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -279,9 +334,9 @@
 <div class="section" id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><a class="reference internal" href="genindex.html"><em>Index</em></a></li>
-<li><a class="reference internal" href="py-modindex.html"><em>Module Index</em></a></li>
-<li><a class="reference internal" href="search.html"><em>Search Page</em></a></li>
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
 </ul>
 </div>
 
@@ -331,13 +386,13 @@
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: ''
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

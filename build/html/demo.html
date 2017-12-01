@@ -32,6 +32,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="minireach latest documentation" href="index.html"/>
         <link rel="next" title="Tutorial: Multiple trucks" href="multi-agent_demo.html"/>
         <link rel="prev" title="Tutorial: Gazebo Simulation" href="gazebo.html"/> 
@@ -94,9 +97,12 @@
 <li class="toctree-l1"><a class="reference internal" href="computer.html">Truck Computer Overview and Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="care_and_feeding.html">Care And Feeding</a></li>
 </ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="demo_teleop.html">Demo: Control the truck using a game-pad</a></li>
+</ul>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="gazebo.html">Tutorial: Gazebo Simulation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Tutorial: Demo</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial: Demo</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#using-rocon-remocon">Using rocon_remocon</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#moving-an-empty-pallet-no-ar-marker">Moving an empty pallet (no AR-marker)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#running-demo-on-real-trucks">Running demo on real trucks</a></li>
@@ -108,6 +114,9 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="pallet_tracker.html">Component: Pallet tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="state_space.html">Component: State space model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="robot_description.html">Component: Robot Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="precision_control.html">Component: Precision control</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
@@ -163,7 +172,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/demo.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/demo.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -180,8 +189,8 @@
 <h1>Tutorial: Demo<a class="headerlink" href="#tutorial-demo" title="Permalink to this headline">¶</a></h1>
 <p>The goal of this tutorial is to make the simulated truck move pallets between
 storage locations in diffrent racks.</p>
-<p>We first start the system in &#8220;monosim&#8221; mode by running the terminal command</p>
-<div class="highlight-python"><div class="highlight"><pre>roslaunch minireach_gazebo monosim.launch
+<p>We first start the system in “monosim” mode by running the terminal command</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">roslaunch</span> <span class="n">minireach_gazebo</span> <span class="n">monosim</span><span class="o">.</span><span class="n">launch</span>
 </pre></div>
 </div>
 <div class="align-centered figure align-center">
@@ -242,9 +251,9 @@ a vizualisation tool first. Click <cite>Back</cite> to return to the <cite>Role 
 <div class="align-centered figure align-center">
 <a class="reference internal image-reference" href="_images/remocon_roll_admin.png"><img alt="_images/remocon_roll_admin.png" src="_images/remocon_roll_admin.png" style="width: 100%;" /></a>
 </div>
-<p>This will give us access to &#8220;start buttons&#8221; for several vizualisation tools. The
+<p>This will give us access to “start buttons” for several vizualisation tools. The
 one will want to start now is called <a class="reference external" href="http://wiki.ros.org/rviz">rviz</a>
-This tool displays sensor data and what the truck &#8220;knows&#8221; about its environment.</p>
+This tool displays sensor data and what the truck “knows” about its environment.</p>
 <div class="align-centered figure align-center">
 <a class="reference internal image-reference" href="_images/rviz_demo.png"><img alt="_images/rviz_demo.png" src="_images/rviz_demo.png" style="width: 100%;" /></a>
 </div>
@@ -275,7 +284,7 @@ in a rack.</p>
 <a class="reference internal image-reference" href="_images/rviz_rack_added.png"><img alt="_images/rviz_rack_added.png" src="_images/rviz_rack_added.png" style="width: 100%;" /></a>
 </div>
 <p>At this point we could start moving the already detected pallet to other storage
-locations in the same rack, but let&#8217;s add some more racks before we do anything else.</p>
+locations in the same rack, but let’s add some more racks before we do anything else.</p>
 <div class="align-centered figure align-center">
 <a class="reference internal image-reference" href="_images/mission1.png"><img alt="_images/mission1.png" src="_images/mission1.png" style="width: 100%;" /></a>
 </div>
@@ -315,7 +324,7 @@ tool to place it into the rack.</p>
 <p>You also need to give the pallet an ID and tell the truck where it is in order
 to be able to interact with it. At the time of writing this tutorial, there is
 no way to do this using a graphical interface. (This may have been added when you
-read this...)</p>
+read this…)</p>
 <div class="align-centered figure align-center">
 <a class="reference internal image-reference" href="_images/rviz_add_empty_pallet.png"><img alt="_images/rviz_add_empty_pallet.png" src="_images/rviz_add_empty_pallet.png" style="width: 100%;" /></a>
 </div>
@@ -350,20 +359,24 @@ tracking it.</p>
 First turn on the main power switch and the industrial computer. You should be able to use
 <a class="reference external" href="https://www.nomachine.com/">NoMachine</a> to open a remote destkop on the truck computer and connect your
 computer to it.</p>
-<div class="highlight-python"><div class="highlight"><pre>User: toyota, Password: minireach
+<div class="highlight-default"><div class="highlight"><pre><span class="n">User</span><span class="p">:</span> <span class="n">toyota</span><span class="p">,</span> <span class="n">Password</span><span class="p">:</span> <span class="n">minireach</span>
 </pre></div>
 </div>
-<p>If the remote desktop does not work, you may need to ssh into the truck and run:</p>
-<div class="highlight-python"><div class="highlight"><pre>sudo /etc/init.d/nxserver restart
+<p>If the remote desktop does not work, you may need to ssh into the truck:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">ssh</span> <span class="n">toyota</span><span class="nd">@minireachX</span>
+</pre></div>
+</div>
+<p>Use the same password as above, and X is the number of truck depending on which truck you want to connect to. Then you can restart the server by writing following command in the terminal:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">sudo</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">nxserver</span> <span class="n">restart</span>
 </pre></div>
 </div>
 <p>On the remote desktop, you sould be able to run the following in a terminal:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">rocon_remocon</span>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">rocon_remocon</span>
 </pre></div>
 </div>
 <p>At this point the interface (Qt remocon) should start and you can follow the same steps as in
 the simulation-tutorial above to start moving pallets.</p>
-<p>If something does not work right away, refer to the troubleshooting section <a class="reference internal" href="troubleshooting.html#id1"><em>Troubleshooting Simulated Truck</em></a></p>
+<p>If something does not work right away, refer to the troubleshooting section <a class="reference internal" href="troubleshooting.html#troubleshooting"><span class="std std-ref">Troubleshooting</span></a></p>
 </div>
 </div>
 
@@ -415,13 +428,13 @@ the simulation-tutorial above to start moving pallets.</p>
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: ''
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

@@ -1,0 +1,300 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Component: Robot Description &mdash; minireach latest documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="minireach latest documentation" href="index.html"/>
+        <link rel="next" title="Component: Precision control" href="precision_control.html"/>
+        <link rel="prev" title="Component: State space model" href="state_space.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> minireach
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installing Truck Simulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="robot_hardware.html">Robot Hardware Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computer.html">Truck Computer Overview and Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="care_and_feeding.html">Care And Feeding</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="demo_teleop.html">Demo: Control the truck using a game-pad</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gazebo.html">Tutorial: Gazebo Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Tutorial: Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multi-agent_demo.html">Tutorial: Multiple trucks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="teleop.html">Tutorial: Robot Teleop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="perception.html">Perception Resources</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="pallet_tracker.html">Component: Pallet tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="state_space.html">Component: State space model</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Component: Robot Description</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#drive-wheel-offset">Drive Wheel Offset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#control-of-modeled-actuators">Control of Modeled Actuators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#future-work">Future work</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="precision_control.html">Component: Precision control</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="known_issues.html">Known Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_overview.html">API Overview</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">minireach</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Component: Robot Description</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/robot_description.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="component-robot-description">
+<h1>Component: Robot Description<a class="headerlink" href="#component-robot-description" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The model used in the simulation environment is defined according to the URDF (Unified Robot Description Format) standard. The files defining the model (having .xacro and .gazebo file extensions) are located in the <code class="docutils literal"><span class="pre">minireach_description</span></code> package in the main <code class="docutils literal"><span class="pre">minireach</span></code> repository.</p>
+<p>The main file for the robot model is called <code class="docutils literal"><span class="pre">minireach.xacro</span></code>. In this file, certain parameters are defined and sub-model files are called. The major sub-assemblies of the model (cab, drive wheel, stand, …) are defined in separate sub-models, located in the <code class="docutils literal"><span class="pre">urdf/assemblies</span></code> folder.</p>
+</div>
+<div class="section" id="drive-wheel-offset">
+<h2>Drive Wheel Offset<a class="headerlink" href="#drive-wheel-offset" title="Permalink to this headline">¶</a></h2>
+<p>The drive wheel on the physical forklift has a small axial offset from the steer servo rotational axis, which gives the forklift a certain behavior. When modeling this offset, a parameter has been introduced to make adjustments of this measure easy to achieve. This parameter is defined in the main file <code class="docutils literal"><span class="pre">minireach.xacro</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="o">&lt;</span><span class="nb">property</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;drive_wheel_offset&quot;</span>     <span class="n">value</span><span class="o">=</span><span class="s2">&quot;-0.0037&quot;</span> <span class="o">/&gt;</span>
+</pre></div>
+</div>
+<p>The value of the offset was determined from drawings and CAD files of the original wheel to be -3.7 mm with the minus sign indicating the direction of the offset.</p>
+</div>
+<div class="section" id="control-of-modeled-actuators">
+<h2>Control of Modeled Actuators<a class="headerlink" href="#control-of-modeled-actuators" title="Permalink to this headline">¶</a></h2>
+<p>In the robot model, certain elements called transmissions are used to define a connection between an actuator and a modeled joint. For these transmissions, joint command interfaces are specified (Position, Velocity or Effort Joint Interface). For example, the wheel_steer_joint transmission (the steer servo) is of the Position Joint Interface type. For this specific interface type, it turned out that it is of ABSOLUTE IMPORTANCE to specify PID parameters for the controller of the interface to make the simulation wok in the desired way. This is done in the <code class="docutils literal"><span class="pre">minireach_control.yaml</span></code> file in the <code class="docutils literal"><span class="pre">minireach_control</span></code> package in the main <code class="docutils literal"><span class="pre">minireach</span></code> repository. Make sure this file contains a <code class="docutils literal"><span class="pre">gazebo_ros_control</span></code> section with PID gains for the joint in question:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">gazebo_ros_control</span><span class="p">:</span>
+  <span class="n">pid_gains</span><span class="p">:</span>
+    <span class="n">wheel_steer_joint</span><span class="p">:</span> <span class="p">{</span><span class="n">p</span><span class="p">:</span> <span class="mf">200.0</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">d</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If these parameters are not specified, the simulation will not take the physics into account while moving the actuator. In the case of the implementation of the drive wheel offset, the drive wheel servo would spin around without taking the contact between the wheel and the underlying surface into account.</p>
+</div>
+</div>
+<div class="section" id="future-work">
+<h2>Future work<a class="headerlink" href="#future-work" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>Both the model and the controllers (in the <code class="docutils literal"><span class="pre">minireach_control</span></code> package) contains a lot of different limit values, for e.g. positions, speeds and accelerations. When implementing the drive wheel offset, it was found that the maximum rotational speed of the steer servo was significantly too low. Hence, this maximum speed value was then corrected. Though, the question is: how precise is the rest of the limit values of the model? This is something that should be investigated to make the simulated model behave more like the physical forklift.</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="precision_control.html" class="btn btn-neutral float-right" title="Component: Precision control" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="state_space.html" class="btn btn-neutral" title="Component: State space model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Samuel Lindgren.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'latest',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
