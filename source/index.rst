@@ -47,6 +47,7 @@ Components
    :maxdepth: 2
 
    pallet_tracker
+   state_space
 
 Other
 -----
@@ -54,6 +55,7 @@ Other
 .. toctree::
    :maxdepth: 2
   
+   drive_wheel_offset
    troubleshooting
    known_issues
    api_overview
