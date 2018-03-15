@@ -32,6 +32,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="minireach latest documentation" href="index.html"/>
         <link rel="next" title="Tutorial: Robot Teleop" href="teleop.html"/>
         <link rel="prev" title="Tutorial: Demo" href="demo.html"/> 
@@ -94,12 +97,19 @@
 <li class="toctree-l1"><a class="reference internal" href="computer.html">Truck Computer Overview and Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="care_and_feeding.html">Care And Feeding</a></li>
 </ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="demo_teleop.html">Demo: Control the truck using a game-pad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo_ar.html">Demo: Move pallets with AR-code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo_no_ar.html">Demo: Handle pallets without AR-codes</a></li>
+</ul>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="gazebo.html">Tutorial: Gazebo Simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="demo.html">Tutorial: Demo</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Tutorial: Multiple trucks</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial: Multiple trucks</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#using-rocon-gateway">Using rocon_gateway</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#todo-insert-title">TODO: Insert title</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#application-random-walk">Application: Random Walk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multi-truck-simulator">Multi-truck Simulator</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="teleop.html">Tutorial: Robot Teleop</a></li>
@@ -107,8 +117,10 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="pallet_tracker.html">Component: Pallet tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="state_space.html">Component: State space model</a></li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="drive_wheel_offset.html">Drive Wheel Offset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="known_issues.html">Known Issues</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_overview.html">API Overview</a></li>
@@ -178,16 +190,16 @@
   <div class="section" id="tutorial-multiple-trucks">
 <h1>Tutorial: Multiple trucks<a class="headerlink" href="#tutorial-multiple-trucks" title="Permalink to this headline">¶</a></h1>
 <dl class="docutils">
-<dt>The goal of this tutorial twofold:</dt>
+<dt>The goal of this tutorial is twofold:</dt>
 <dd><ul class="first last simple">
-<li>To esablish a connection between multiple real trucks where information can be exchanged.</li>
-<li>TODO</li>
+<li>To establish a connection between multiple real trucks where information can be exchanged.</li>
+<li>Describe how to use the multi-truck simulator</li>
 </ul>
 </dd>
 </dl>
 <p>This example uses a computer as a central hub which two trucks connects to.</p>
 <p>First power-up the two trucks and their industrial computers along with the computer which will act as a central hub.
-You can use <a class="reference external" href="https://www.nomachine.com/">NoMachine</a> to connect to the trucks as described in TODO: ADD LINK TO SAMUELS DEMO</p>
+You can use <a class="reference external" href="https://www.nomachine.com/">NoMachine</a> to connect to the trucks as described in <a class="reference internal" href="demo.html#running-demo-on-real-trucks"><span class="std std-ref">Running demo on real trucks</span></a>.</p>
 <div class="section" id="using-rocon-gateway">
 <h2>Using rocon_gateway<a class="headerlink" href="#using-rocon-gateway" title="Permalink to this headline">¶</a></h2>
 <p>Once the remote desktop connection has been established the next step is to connect the trucks and central computer to each other.
@@ -195,33 +207,102 @@ This is done via a ros package called <a class="reference external" href="http:/
 The gateway nodes should already be running on the trucks.
 To start the node on the central computer enter the following command in a terminal.
 (Note: Make sure that the terminal started is on the correct computer as it is easy to mix them up when dealing with remote desktops):</p>
-<div class="highlight-python"><div class="highlight"><pre>roslaunch minireach_concert concert.launch
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">minireach_concert</span> <span class="n">concert</span><span class="o">.</span><span class="n">launch</span>
 </pre></div>
 </div>
 <p>Once this node is running you should be able to see detections of other concert nodes in the terminal.
 The nodes has been properly connected if they have the state &#8216;available&#8217;.
 The following is an example of a successful connection:</p>
-<div class="highlight-python"><div class="highlight"><pre>Conductor : concert client transition [joining -&gt; available][espeon]
-Conductor : concert client transition [joining -&gt; available][flareon]
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Conductor</span> <span class="p">:</span> <span class="n">concert</span> <span class="n">client</span> <span class="n">transition</span> <span class="p">[</span><span class="n">joining</span> <span class="o">-&gt;</span> <span class="n">available</span><span class="p">][</span><span class="n">espeon</span><span class="p">]</span>
+<span class="n">Conductor</span> <span class="p">:</span> <span class="n">concert</span> <span class="n">client</span> <span class="n">transition</span> <span class="p">[</span><span class="n">joining</span> <span class="o">-&gt;</span> <span class="n">available</span><span class="p">][</span><span class="n">flareon</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>In case of all trucks not connecting successfully the gateways should be stopped on all computers and thereafter restarted.
 The following command restarts the processes on the trucks. Note that the processes should be stopped on all machines before starting them again:</p>
-<div class="highlight-python"><div class="highlight"><pre>sudo service minireach stop
-roslaunch minireach\_bringup bringup.launch
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">service</span> <span class="n">minireach</span> <span class="n">stop</span>
+<span class="n">roslaunch</span> <span class="n">minireach</span>\<span class="n">_bringup</span> <span class="n">bringup</span><span class="o">.</span><span class="n">launch</span>
 </pre></div>
 </div>
 <p>Lastly, once the gateway nodes are running on the trucks, start the hub on the central computer as described before.
 This process might have to be repeated if the desirable state of the nodes are not reached.</p>
 </div>
-<div class="section" id="todo-insert-title">
-<h2>TODO: Insert title<a class="headerlink" href="#todo-insert-title" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="application-random-walk">
+<h2>Application: Random Walk<a class="headerlink" href="#application-random-walk" title="Permalink to this headline">¶</a></h2>
 <p>This subsection will describe how to start and run the multi-ROS master application Random Walk.
 This app is divided into two parts.
 Random Walk Mapping creates a map of its environment where it can drive around.
-Random Walk AMCL receives the map from Random Walk Mapping and tries to position itself in it.</p>
-<p>The apps are started with rocon_remocon described in TODO: ADD LINK TO SAMUELS DEMO
-asd</p>
+Random Walk AMCL (Automatic Monte Carlo Localization) receives the map from Random Walk Mapping and tries to position itself in it.</p>
+<p>The apps are started with rocon_remocon described in <a class="reference internal" href="demo.html#using-rocon-remocon"><span class="std std-ref">Using rocon_remocon</span></a> and is done after the rocon_gateway connection has been established.
+After the apps are launched each truck will have its own rviz window representing how it views its surrounding.
+A good idea to do next could be to drive around with the mapping truck to get a map of the surrounding environment.
+The truck with AMLC running will have to get an initial estimate of its position.
+This is done with the &#8220;Pose Estimate&#8221; button in rviz.
+Note that this is a click and drag action.</p>
+<p>After the truck has been properly initiated both trucks can be given waypoints to drive to with the &#8220;publish point&#8221; button in rviz.
+If a truck running AMCL&#8217;s actual and estimated position would diverge the button &#8220;Estimate 2D pose&#8221; could be used at any time to relocate its position estimation.</p>
+</div>
+<div class="section" id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<p>This subsection will describe how to fix different errors that may occur.</p>
+<p>If a node does not start, the easiest way to fix this is to restart the system.
+Another way to fix the problem is shown below.
+For example, lets say that a truck does not show up in the other trucks map (RVIz).
+The reason behind this could be that the node named: Truck_state_broadcaster did not start.
+The way to check if the node has started is to use the command:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rosnode</span> <span class="nb">list</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">truck_state_broadcaster</span>
+</pre></div>
+</div>
+<p>Then control that the node named truck_state_broadcaster exists in the list.
+If not, try to run it with:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rosrun</span> <span class="n">minireach_tasks</span> <span class="n">truck_state_broadcaster</span> <span class="n">__ns</span><span class="p">:</span><span class="o">=</span><span class="s2">&quot;namespace&quot;</span>
+</pre></div>
+</div>
+<p>Then you can use the commands flip and pull to connect the gateways and force the data to be sent.
+Write the following commands into the terminal:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rosrun</span> <span class="n">rocon_gateway</span> <span class="n">flip</span>
+<span class="n">rosrun</span> <span class="n">rocon_gateway</span> <span class="n">pull</span>
+</pre></div>
+</div>
+<p>The flip command, makes the gateway send the data of a certain topic and the pull retrieves data from a topic sent from another rosmaster.</p>
+<p>Read more in the tutorials of <a class="reference external" href="http://wiki.ros.org/action/fullsearch/rocon_gateway?action=fullsearch&amp;context=180&amp;value=linkto%3A%22rocon_gateway%22">rocon_gateway</a>.</p>
+<p>If the gateways will not connect.
+Open .bashrc and check the the following settings are correct:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">ROS_MASTER_URI</span><span class="o">=</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="s2">&quot;IP&quot;</span><span class="p">::</span><span class="mi">11311</span>
+<span class="n">export</span> <span class="n">ROS_HOSTNAME</span><span class="o">=</span><span class="s2">&quot;IP&quot;</span>
+<span class="n">export</span> <span class="n">ROS_IP</span><span class="o">=</span><span class="s2">&quot;IP&quot;</span>
+
+<span class="n">export</span> <span class="n">MINIREACH_SIMULATION</span><span class="o">=</span><span class="n">false</span>
+<span class="n">export</span> <span class="n">MINIREACH_DISABLE_ZERO_CONF</span><span class="o">=</span><span class="n">false</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="multi-truck-simulator">
+<h2>Multi-truck Simulator<a class="headerlink" href="#multi-truck-simulator" title="Permalink to this headline">¶</a></h2>
+<p>This subsection will describe how to run the simulator for 2 trucks (the number of trucks is possible to change).</p>
+<p>First control the settings in bashrc.
+The following settings should be set:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">ROS_MASTER_URI</span><span class="o">=</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">::</span><span class="mi">11311</span>
+<span class="n">export</span> <span class="n">ROS_HOSTNAME</span><span class="o">=</span><span class="n">localhost</span>
+<span class="n">export</span> <span class="n">ROS_IP</span><span class="o">=</span><span class="n">localhost</span>
+
+<span class="n">export</span> <span class="n">MINIREACH_SIMULATION</span><span class="o">=</span><span class="n">false</span>
+<span class="n">export</span> <span class="n">MINIREACH_DISABLE_ZERO_CONF</span><span class="o">=</span><span class="n">false</span>
+</pre></div>
+</div>
+<p>Then restart the terminal.
+Start the simulation by using the following commands (You will need different terminals):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">minireach_gazebo</span> <span class="n">multisim</span><span class="o">.</span><span class="n">launch</span>
+<span class="n">rosrun</span> <span class="n">concert_service_random_walk</span> <span class="n">temp_start</span><span class="o">.</span><span class="n">py</span>
+<span class="n">rocon_launch</span> <span class="n">minireach_rviz</span> <span class="n">random_walk</span><span class="o">.</span><span class="n">concert</span>
+</pre></div>
+</div>
+<p>It will open a solution with different rosmasters in each terminal. This makes it possible to simulate the real environment.</p>
+<p>TROUBLESHOOTING</p>
+<p>If no maps exists in either truck, then most likely the temp_start command did not work properly.
+Run following command in a terminal:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">concert_service_random_walk</span> <span class="n">start_rapps</span><span class="o">.</span><span class="n">launch</span>
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -279,7 +360,7 @@ asd</p>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

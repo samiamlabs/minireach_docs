@@ -32,6 +32,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="minireach latest documentation" href="index.html"/>
         <link rel="next" title="Tutorial: Multiple trucks" href="multi-agent_demo.html"/>
         <link rel="prev" title="Tutorial: Gazebo Simulation" href="gazebo.html"/> 
@@ -94,9 +97,14 @@
 <li class="toctree-l1"><a class="reference internal" href="computer.html">Truck Computer Overview and Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="care_and_feeding.html">Care And Feeding</a></li>
 </ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="demo_teleop.html">Demo: Control the truck using a game-pad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo_ar.html">Demo: Move pallets with AR-code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo_no_ar.html">Demo: Handle pallets without AR-codes</a></li>
+</ul>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="gazebo.html">Tutorial: Gazebo Simulation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Tutorial: Demo</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial: Demo</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#using-rocon-remocon">Using rocon_remocon</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#moving-an-empty-pallet-no-ar-marker">Moving an empty pallet (no AR-marker)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#running-demo-on-real-trucks">Running demo on real trucks</a></li>
@@ -108,8 +116,10 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="pallet_tracker.html">Component: Pallet tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="state_space.html">Component: State space model</a></li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="drive_wheel_offset.html">Drive Wheel Offset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="known_issues.html">Known Issues</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_overview.html">API Overview</a></li>
@@ -181,7 +191,7 @@
 <p>The goal of this tutorial is to make the simulated truck move pallets between
 storage locations in diffrent racks.</p>
 <p>We first start the system in &#8220;monosim&#8221; mode by running the terminal command</p>
-<div class="highlight-python"><div class="highlight"><pre>roslaunch minireach_gazebo monosim.launch
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">minireach_gazebo</span> <span class="n">monosim</span><span class="o">.</span><span class="n">launch</span>
 </pre></div>
 </div>
 <div class="align-centered figure align-center">
@@ -220,12 +230,12 @@ work.</p>
 <div class="align-centered figure align-center">
 <a class="reference internal image-reference" href="_images/interactions_fail.png"><img alt="_images/interactions_fail.png" src="_images/interactions_fail.png" style="width: 100%;" /></a>
 </div>
-<p>Doubleclick <cite>User</cite> to see available <a class="reference external" href="http://wiki.ros.org/rocon/indigo/Guide#rocon_app_platform.Rapps">Robot Apps</a>
+<p>Dubbleclick <cite>User</cite> to see available <a class="reference external" href="http://wiki.ros.org/rocon/indigo/Guide#rocon_app_platform.Rapps">Robot Apps</a>
 or <cite>rapps</cite>.</p>
 <div class="align-centered figure align-center">
 <a class="reference internal image-reference" href="_images/remocon_roll_user.png"><img alt="_images/remocon_roll_user.png" src="_images/remocon_roll_user.png" style="width: 100%;" /></a>
 </div>
-<p>In this demo we will use the <cite>Handle Pallet</cite> rapp, so dobleclick on that to start it.</p>
+<p>In this demo we will use the <cite>Handle Pallet</cite> rapp, so dubbleclick on that to start it.</p>
 <div class="align-centered figure align-center">
 <a class="reference internal image-reference" href="_images/remocon_handle_pallet.png"><img alt="_images/remocon_handle_pallet.png" src="_images/remocon_handle_pallet.png" style="width: 100%;" /></a>
 </div>
@@ -350,20 +360,24 @@ tracking it.</p>
 First turn on the main power switch and the industrial computer. You should be able to use
 <a class="reference external" href="https://www.nomachine.com/">NoMachine</a> to open a remote destkop on the truck computer and connect your
 computer to it.</p>
-<div class="highlight-python"><div class="highlight"><pre>User: toyota, Password: minireach
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">User</span><span class="p">:</span> <span class="n">toyota</span><span class="p">,</span> <span class="n">Password</span><span class="p">:</span> <span class="n">minireach</span>
 </pre></div>
 </div>
-<p>If the remote desktop does not work, you may need to ssh into the truck and run:</p>
-<div class="highlight-python"><div class="highlight"><pre>sudo /etc/init.d/nxserver restart
+<p>If the remote desktop does not work, you may need to ssh into the truck:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="n">toyota</span><span class="nd">@minireachX</span>
+</pre></div>
+</div>
+<p>Use the same password as above, and X is the number of truck depending on which truck you want to connect to. Then you can restart the server by writing following command in the terminal:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">nxserver</span> <span class="n">restart</span>
 </pre></div>
 </div>
 <p>On the remote desktop, you sould be able to run the following in a terminal:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">rocon_remocon</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rocon_remocon</span>
 </pre></div>
 </div>
 <p>At this point the interface (Qt remocon) should start and you can follow the same steps as in
 the simulation-tutorial above to start moving pallets.</p>
-<p>If something does not work right away, refer to the troubleshooting section <a class="reference internal" href="troubleshooting.html#id1"><em>Troubleshooting Simulated Truck</em></a></p>
+<p>If something does not work right away, refer to the troubleshooting section <a class="reference internal" href="troubleshooting.html#troubleshooting"><span class="std std-ref">Troubleshooting</span></a></p>
 </div>
 </div>
 
@@ -421,7 +435,7 @@ the simulation-tutorial above to start moving pallets.</p>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

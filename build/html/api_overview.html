@@ -32,6 +32,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="minireach latest documentation" href="index.html"/>
         <link rel="prev" title="Known Issues" href="known_issues.html"/> 
 
@@ -94,6 +97,11 @@
 <li class="toctree-l1"><a class="reference internal" href="care_and_feeding.html">Care And Feeding</a></li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="demo_teleop.html">Demo: Control the truck using a game-pad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo_ar.html">Demo: Move pallets with AR-code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo_no_ar.html">Demo: Handle pallets without AR-codes</a></li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="gazebo.html">Tutorial: Gazebo Simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="demo.html">Tutorial: Demo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multi-agent_demo.html">Tutorial: Multiple trucks</a></li>
@@ -102,11 +110,13 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="pallet_tracker.html">Component: Pallet tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="state_space.html">Component: State space model</a></li>
 </ul>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="drive_wheel_offset.html">Drive Wheel Offset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="known_issues.html">Known Issues</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">API Overview</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Overview</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#fork-and-reach">Fork and Reach</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#base-interface">Base Interface</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#d-camera-tilt-interface">3D Camera Tilt Interface</a></li>
@@ -206,8 +216,8 @@ message.</p>
 <p>Only two fields are used in the message:</p>
 <blockquote>
 <div><ul class="simple">
-<li><tt class="docutils literal"><span class="pre">linear.x</span></tt> specifies the robot&#8217;s forward velocity</li>
-<li><tt class="docutils literal"><span class="pre">angular.z</span></tt> specifies the robot&#8217;s turning velocity</li>
+<li><code class="docutils literal"><span class="pre">linear.x</span></code> specifies the robot&#8217;s forward velocity</li>
+<li><code class="docutils literal"><span class="pre">angular.z</span></code> specifies the robot&#8217;s turning velocity</li>
 </ul>
 </div></blockquote>
 <p>User applications will typically not connect directly to <cite>base_controller/command</cite>,
@@ -229,7 +239,7 @@ during pallet handling.</p>
 is in the stop field (red rectangle). This completly stops the truck from moving
 in that direction.</p>
 <p>This terminal command diables safety as long as it is running:</p>
-<div class="highlight-python"><div class="highlight"><pre>rostopic pub -r 10 /disable_safety std_msgs/String &quot;data: &#39;&#39;&quot;
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rostopic</span> <span class="n">pub</span> <span class="o">-</span><span class="n">r</span> <span class="mi">10</span> <span class="o">/</span><span class="n">disable_safety</span> <span class="n">std_msgs</span><span class="o">/</span><span class="n">String</span> <span class="s2">&quot;data: &#39;&#39;&quot;</span>
 </pre></div>
 </div>
 <div class="align-centered figure align-center">
@@ -241,7 +251,7 @@ in that direction.</p>
 <p>The 3D camera in the fork facing direction on the robot is controlled by an
 interface defined in <a class="reference external" href="http://wiki.ros.org/robot_mechanism_controllers/JointPositionController">robot_mechanism_controllers/JointPositionController</a></p>
 <p>Publishing a float to the /minireach/camera_tilt_controller/command topic will make the controller try to move the camera tilt axis to the angle defined by the value of that float in radians.</p>
-<div class="highlight-python"><div class="highlight"><pre>rostopic pub /camera_tilt_controller/command std_msgs/Float6&quot;data: 0.8&quot;
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rostopic</span> <span class="n">pub</span> <span class="o">/</span><span class="n">camera_tilt_controller</span><span class="o">/</span><span class="n">command</span> <span class="n">std_msgs</span><span class="o">/</span><span class="n">Float6</span><span class="s2">&quot;data: 0.8&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -323,7 +333,7 @@ at 3330Hz.</li>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

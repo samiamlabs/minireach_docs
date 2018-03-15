@@ -32,6 +32,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="minireach latest documentation" href="index.html"/>
         <link rel="next" title="Installing Truck Simulator" href="installation.html"/>
         <link rel="prev" title="Welcome to minireach’s documentation!" href="index.html"/> 
@@ -88,11 +91,19 @@
             
             
               <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#start-a-demo">Start a demo</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installing Truck Simulator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="robot_hardware.html">Robot Hardware Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="computer.html">Truck Computer Overview and Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="care_and_feeding.html">Care And Feeding</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="demo_teleop.html">Demo: Control the truck using a game-pad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo_ar.html">Demo: Move pallets with AR-code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo_no_ar.html">Demo: Handle pallets without AR-codes</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="gazebo.html">Tutorial: Gazebo Simulation</a></li>
@@ -103,8 +114,10 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="pallet_tracker.html">Component: Pallet tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="state_space.html">Component: State space model</a></li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="drive_wheel_offset.html">Drive Wheel Offset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="known_issues.html">Known Issues</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_overview.html">API Overview</a></li>
@@ -177,6 +190,15 @@
 and develop code on the miniature warehouse truck/robot refered to
 in this document as MiniReach. The software installed on the truck is
 based on ROS. Please visit <a class="reference external" href="http://ros.org">http://ros.org</a> to learn more about ROS.</p>
+<div class="section" id="start-a-demo">
+<h2>Start a demo<a class="headerlink" href="#start-a-demo" title="Permalink to this headline">¶</a></h2>
+<p>If you just want to start a demo, self contained instructions for some demo scenarios are provided.</p>
+<p>Demos running on real truck</p>
+<ul class="simple">
+<li><a class="reference internal" href="demo_teleop.html#demo-teleop"><span class="std std-ref">Demo: Control the truck using a game-pad</span></a></li>
+<li><a class="reference internal" href="demo_ar.html#demo-ar"><span class="std std-ref">Demo: Move pallets with AR-code</span></a></li>
+<li><a class="reference internal" href="demo_no_ar.html#demo-no-ar"><span class="std std-ref">Demo: Handle pallets without AR-codes</span></a></li>
+</ul>
 <dl class="docutils">
 <dt><strong>MiniReach Support</strong></dt>
 <dd><ul class="first last simple">
@@ -184,6 +206,7 @@ based on ROS. Please visit <a class="reference external" href="http://ros.org">h
 </ul>
 </dd>
 </dl>
+</div>
 </div>
 
 
@@ -240,7 +263,7 @@ based on ROS. Please visit <a class="reference external" href="http://ros.org">h
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

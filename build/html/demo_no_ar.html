@@ -1,0 +1,340 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Demo: Handle pallets without AR-codes &mdash; minireach latest documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="minireach latest documentation" href="index.html"/>
+        <link rel="next" title="Tutorial: Gazebo Simulation" href="gazebo.html"/>
+        <link rel="prev" title="Demo: Move pallets with AR-code" href="demo_ar.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> minireach
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installing Truck Simulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="robot_hardware.html">Robot Hardware Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computer.html">Truck Computer Overview and Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="care_and_feeding.html">Care And Feeding</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="demo_teleop.html">Demo: Control the truck using a game-pad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo_ar.html">Demo: Move pallets with AR-code</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Demo: Handle pallets without AR-codes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#start-the-truck">Start the truck</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#login-to-the-truck">1). Login to the truck</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#restart-bringup">2). Restart bringup</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gazebo.html">Tutorial: Gazebo Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Tutorial: Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multi-agent_demo.html">Tutorial: Multiple trucks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="teleop.html">Tutorial: Robot Teleop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="perception.html">Perception Resources</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pallet_tracker.html">Component: Pallet tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="state_space.html">Component: State space model</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="drive_wheel_offset.html">Drive Wheel Offset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="known_issues.html">Known Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_overview.html">API Overview</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">minireach</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Demo: Handle pallets without AR-codes</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/demo_no_ar.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="demo-handle-pallets-without-ar-codes">
+<span id="demo-no-ar"></span><h1>Demo: Handle pallets without AR-codes<a class="headerlink" href="#demo-handle-pallets-without-ar-codes" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Prerequisites &#8211; The following is required to run this demo.</p>
+<ul class="last simple">
+<li>A truck which is charged</li>
+<li>A computer which you can remote desktop into the truck with</li>
+<li>A gamepad with it&#8217;s dongle connected to the usb port on the truck<ul>
+<li>At the moment only the xbox gamepad is working</li>
+</ul>
+</li>
+<li>A router that has been setup in such a way that the trucks and laptops can connect automatically when powered up<ul>
+<li>This must be done before leaving Toyota premises</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="start-the-truck">
+<h2>Start the truck<a class="headerlink" href="#start-the-truck" title="Permalink to this headline">¶</a></h2>
+<p>To start the truck, follow these steps.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Start the truck by pulling the red switch on the battery upwards.</li>
+<li>Start the computer on the truck by pressing the small gray button on the lower left backside of the computer.</li>
+</ol>
+</div></blockquote>
+<p>Now verify that everything has launched properly by trying to move the truck around by using the gamepad.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">All images in this tutorial are from the tutorial, but it will look almost exactly the same for real trucks.</p>
+</div>
+</div>
+<div class="section" id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<p>If the truck does not respond to the controller, you might have to relaunch the drivers. Do this by following the steps below.</p>
+<p>If the truck still does not react to the game controller, you might have to tilt the truck and to turn the driving wheel (the big wheel under the truck) sideways, i.e. change it&#8217;s direction by hand. Then the drivers should communicate correctly. This is due to a bug from the manufacturer of the steering servo.</p>
+<div class="section" id="login-to-the-truck">
+<h3>1). Login to the truck<a class="headerlink" href="#login-to-the-truck" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Launch NoMachine, on the Ubuntu laptop it should be available in the upper right corner on the screen.</li>
+<li>Choose the truck you want to login to.</li>
+</ol>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>If it says connection refused you will have to restart the NoMachine server.</p>
+<ol class="last arabic simple">
+<li>ssh in on the truck<ol class="arabic">
+<li>Open a new terminal on your laptop</li>
+<li>Type <code class="docutils literal"><span class="pre">ssh</span> <span class="pre">toyota&#64;minireach&lt;truck_nr&gt;</span></code>, where truck_nr = [1 or 2] is the truck you want to use.</li>
+</ol>
+</li>
+<li>Type <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">/etc/init.d/nxserver</span> <span class="pre">restart</span></code><ol class="arabic">
+<li>It will ask for the password which is <code class="docutils literal"><span class="pre">minireach</span></code></li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="restart-bringup">
+<h3>2). Restart bringup<a class="headerlink" href="#restart-bringup" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Open a terminal inside the remote desktop</li>
+<li>Stop the drivers <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">minireach</span> <span class="pre">stop</span></code></li>
+<li>Restart the drivers <code class="docutils literal"><span class="pre">roslaunch</span> <span class="pre">minireach_bringup</span> <span class="pre">bringup.launch</span></code></li>
+</ol>
+</div></blockquote>
+<p>Now you should be able to control the truck using the game-pad.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="gazebo.html" class="btn btn-neutral float-right" title="Tutorial: Gazebo Simulation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="demo_ar.html" class="btn btn-neutral" title="Demo: Move pallets with AR-code" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Samuel Lindgren.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'latest',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

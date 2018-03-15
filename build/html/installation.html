@@ -32,6 +32,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="minireach latest documentation" href="index.html"/>
         <link rel="next" title="Robot Hardware Overview" href="robot_hardware.html"/>
         <link rel="prev" title="Introduction" href="introduction.html"/> 
@@ -89,10 +92,15 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Installing Truck Simulator</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installing Truck Simulator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="robot_hardware.html">Robot Hardware Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="computer.html">Truck Computer Overview and Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="care_and_feeding.html">Care And Feeding</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="demo_teleop.html">Demo: Control the truck using a game-pad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo_ar.html">Demo: Move pallets with AR-code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo_no_ar.html">Demo: Handle pallets without AR-codes</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="gazebo.html">Tutorial: Gazebo Simulation</a></li>
@@ -103,8 +111,10 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="pallet_tracker.html">Component: Pallet tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="state_space.html">Component: State space model</a></li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="drive_wheel_offset.html">Drive Wheel Offset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="known_issues.html">Known Issues</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_overview.html">API Overview</a></li>
@@ -173,44 +183,51 @@
             
   <div class="section" id="installing-truck-simulator">
 <h1>Installing Truck Simulator<a class="headerlink" href="#installing-truck-simulator" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Prerequisites &#8211; The following is required for installation of simulator.</p>
+<ul class="last simple">
+<li>A computer with Ubuntu 14.04.</li>
+</ul>
+</div>
 <p>ROS Indigo needs to be installed before you can use these instructions. You can find a guide for installing it
 <a class="reference external" href="http://wiki.ros.org/indigo/Installation/Ubuntu">here</a>.</p>
 <p>Install wstool and rosdep.</p>
-<div class="highlight-python"><div class="highlight"><pre>sudo apt-get update
-sudo apt-get install -y python-wstool python-rosdep ninja-build
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">python</span><span class="o">-</span><span class="n">wstool</span> <span class="n">python</span><span class="o">-</span><span class="n">rosdep</span> <span class="n">ninja</span><span class="o">-</span><span class="n">build</span>
 </pre></div>
 </div>
 <p>Create a new workspace in &#8216;catkin_ws&#8217;.</p>
-<div class="highlight-python"><div class="highlight"><pre>cd ~
-mkdir catkin_ws
-cd catkin_ws
-wstool init src
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~</span>
+<span class="n">mkdir</span> <span class="n">catkin_ws</span>
+<span class="n">cd</span> <span class="n">catkin_ws</span>
+<span class="n">wstool</span> <span class="n">init</span> <span class="n">src</span>
 </pre></div>
 </div>
 <p>Merge the minireach.rosinstall file and fetch code for dependencies.</p>
-<div class="highlight-python"><div class="highlight"><pre>wstool merge -t src https://github.com/samiamlabs/minireach_install/raw/master/minireach.rosinstall
-wstool update -t src
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">wstool</span> <span class="n">merge</span> <span class="o">-</span><span class="n">t</span> <span class="n">src</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">samiamlabs</span><span class="o">/</span><span class="n">minireach_install</span><span class="o">/</span><span class="n">raw</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">minireach</span><span class="o">.</span><span class="n">rosinstall</span>
+<span class="n">wstool</span> <span class="n">update</span> <span class="o">-</span><span class="n">t</span> <span class="n">src</span>
 </pre></div>
 </div>
 <p>Install deb dependencies.</p>
-<div class="highlight-python"><div class="highlight"><pre>sudo rosdep init
+<div class="highlight-default"><div class="highlight"><pre><span></span>sudo rosdep init
 rosdep update
 rosdep install --from-paths src --ignore-src --rosdistro=${ROS_DISTRO} -y -r
 </pre></div>
 </div>
 <p>Source ROS if you have not already sourced the main ROS environment:</p>
-<div class="highlight-python"><div class="highlight"><pre>echo &quot;source /opt/ros/indigo/setup.bash&quot; &gt;&gt; ~/.bashrc
-source ~/.bashrc
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="s2">&quot;source /opt/ros/indigo/setup.bash&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">~/.</span><span class="n">bashrc</span>
+<span class="n">source</span> <span class="o">~/.</span><span class="n">bashrc</span>
 </pre></div>
 </div>
 <p>Build</p>
-<div class="highlight-python"><div class="highlight"><pre>catkin_make_isolated --use-ninja
-source devel_isolated/setup.bash
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">catkin_make_isolated</span> <span class="o">--</span><span class="n">use</span><span class="o">-</span><span class="n">ninja</span>
+<span class="n">source</span> <span class="n">devel_isolated</span><span class="o">/</span><span class="n">setup</span><span class="o">.</span><span class="n">bash</span>
 </pre></div>
 </div>
 <p>Test</p>
-<div class="highlight-python"><div class="highlight"><pre>rospack profile
-roslaunch minireach_gazebo monosim.launch
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rospack</span> <span class="n">profile</span>
+<span class="n">roslaunch</span> <span class="n">minireach_gazebo</span> <span class="n">monosim</span><span class="o">.</span><span class="n">launch</span>
 </pre></div>
 </div>
 </div>
@@ -269,7 +286,7 @@ roslaunch minireach_gazebo monosim.launch
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

@@ -64,3 +64,34 @@ The runstop is used to stop all operation of the base. When the runstop is press
    :align: center
    :figclass: align-centered
 .. _access_panel:
+
+Arduino
+++++++++++++++++
+ TODO
+
+Arduino:
+
+RX0:
+TX1:
+D2: Vit 		INTERRUPT_WHEEL_ENCODER
+D3: Ljusblå	INTERRUPT_WHEEL_ENCODER
+D4:
+D5:
+D6:
+D7:
+D8:
+D9:
+D10: Lila	LIFT_UP_DOWN
+D11: Blå	REACH_IN_OUT
+D12: Gul	LIFT_ON_OFF
+D13: Grön	REACH_ON_OFF
+D14: Lila	TCS
+D15: Blå	Okänd, Till Relä
+D16: Gul	Oanvänd
+D17: Grön	Oanvänd
+
+Reachkortet (?):
+IN1 Grön  - Från D13
+IN2 Gul   - Från D12
+IN3 Blå   - Från D11
+IN4 Lila  - Från D10

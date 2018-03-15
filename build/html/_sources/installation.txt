@@ -1,6 +1,11 @@
 Installing Truck Simulator
 ==========================
 
+.. note::
+    Prerequisites -- The following is required for installation of simulator.
+
+    * A computer with Ubuntu 14.04.
+
 ROS Indigo needs to be installed before you can use these instructions. You can find a guide for installing it 
 `here <http://wiki.ros.org/indigo/Installation/Ubuntu>`_.
 
